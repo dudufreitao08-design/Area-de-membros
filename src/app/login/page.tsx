@@ -74,7 +74,7 @@ export default function LoginPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Bem-vindo de volta!</CardTitle>
           <CardDescription>
-            Entre na sua conta para acessar os módulos.
+            Faça login para acessar o CÓDIGO DO SONO.
           </CardDescription>
         </CardHeader>
         <CardContent>
