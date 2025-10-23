@@ -95,7 +95,7 @@ export default function RegisterPage() {
     <AuthLayout>
       <Card className="w-full max-w-sm border-none bg-card/80 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Registro</CardTitle>
+          <CardTitle className="text-2xl">Crie sua conta</CardTitle>
           <CardDescription>
             Crie sua conta para acessar o CÓDIGO DO SONO
           </CardDescription>
