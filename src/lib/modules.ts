@@ -1,4 +1,3 @@
-
 import { BookOpen, ClipboardCheck, FlaskConical, Target, TrendingUp } from 'lucide-react';
 import type { Module } from '@/lib/types';
 

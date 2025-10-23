@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -8,10 +7,9 @@ import {
   doc,
   getDoc,
   updateDoc,
-  setDoc,
 } from 'firebase/firestore';
 
-import { useFirestore, useUser, setDocumentNonBlocking, updateDocumentNonBlocking } from '@/firebase';
+import { useFirestore, useUser, updateDocumentNonBlocking, setDocumentNonBlocking } from '@/firebase';
 import { modules } from '@/lib/modules';
 import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
