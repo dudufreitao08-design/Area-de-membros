@@ -23,11 +23,11 @@ import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
 
 const modules: Module[] = [
-  { id: 'module-1', title: 'Introdução', icon: BookOpen },
-  { id: 'module-2', title: 'Estratégias', icon: Target },
-  { id: 'module-3', title: 'Implementação', icon: ClipboardCheck },
-  { id: 'module-4', title: 'Testes', icon: FlaskConical },
-  { id: 'module-5', title: 'Escala', icon: TrendingUp },
+  { id: 'module-1', title: 'Introdução', icon: BookOpen, imageUrl: 'https://i.imgur.com/j8s3iLg.png' },
+  { id: 'module-2', title: 'Estratégias', icon: Target, imageUrl: 'https://i.imgur.com/uC5nN7g.png' },
+  { id: 'module-3', title: 'Implementação', icon: ClipboardCheck, imageUrl: 'https://i.imgur.com/VfUnAIG.png' },
+  { id: 'module-4', title: 'Testes', icon: FlaskConical, imageUrl: 'https://i.imgur.com/Gplq23y.png' },
+  { id: 'module-5', title: 'Escala', icon: TrendingUp, imageUrl: 'https://i.imgur.com/sC5I3t7.png' },
 ];
 
 export function ModulesGrid() {

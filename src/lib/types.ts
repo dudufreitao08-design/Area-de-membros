@@ -4,4 +4,5 @@ export interface Module {
   id: string;
   title: string;
   icon: LucideIcon;
+  imageUrl: string;
 }
