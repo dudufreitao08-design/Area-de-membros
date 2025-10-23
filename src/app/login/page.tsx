@@ -125,7 +125,7 @@ export default function LoginPage() {
           <div className="mt-4 text-center text-sm">
             Não tem uma conta?{' '}
             <Link href="/register" className="font-semibold text-primary hover:underline">
-              Registre-se
+              Crie uma agora
             </Link>
           </div>
         </CardContent>
