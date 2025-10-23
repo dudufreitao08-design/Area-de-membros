@@ -97,7 +97,7 @@ export default function RegisterPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Registro</CardTitle>
           <CardDescription>
-            Crie sua conta para começar sua jornada.
+            Crie sua conta para acessar o CÓDIGO DO SONO
           </CardDescription>
         </CardHeader>
         <CardContent>
