@@ -1,0 +1,159 @@
+{
+  "entities": {
+    "UserProgress": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProgress",
+      "type": "object",
+      "description": "Stores the progress of a user in the Aether Academy modules.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the UserProgress entry."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User. (Relationship: User 1:N UserProgress)"
+        },
+        "moduleId": {
+          "type": "string",
+          "description": "Reference to the Module. (Relationship: Module 1:N UserProgress)"
+        },
+        "isCompleted": {
+          "type": "boolean",
+          "description": "Indicates whether the user has completed the module."
+        },
+        "lastAccessed": {
+          "type": "string",
+          "description": "Timestamp of the last time the user accessed this module.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "moduleId",
+        "isCompleted"
+      ]
+    },
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the Aether Academy platform. Authentication details are managed externally (e.g., Firebase Authentication).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the User entity."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "registrationDate": {
+          "type": "string",
+          "description": "Date and time when the user registered.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "registrationDate"
+      ]
+    },
+    "Module": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Module",
+      "type": "object",
+      "description": "Represents a module within the Aether Academy curriculum.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Module entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the module (e.g., Introduction, Strategies)."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of what the module covers."
+        },
+        "order": {
+          "type": "number",
+          "description": "The order in which the module should be displayed."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "order"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information. This collection uses path-based ownership. Only the user themselves can create, read, update, or delete their own profile.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, corresponding to their Firebase Auth UID."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/progress/{progressId}",
+        "definition": {
+          "entityName": "UserProgress",
+          "schema": {
+            "$ref": "#/backend/entities/UserProgress"
+          },
+          "description": "Stores the progress of a user in different modules. This collection uses path-based ownership; each document is associated with a specific user. Only the user themselves can modify their own progress records.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user, corresponding to their Firebase Auth UID."
+            },
+            {
+              "name": "progressId",
+              "description": "The unique identifier for the user progress entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/modules/{moduleId}",
+        "definition": {
+          "entityName": "Module",
+          "schema": {
+            "$ref": "#/backend/entities/Module"
+          },
+          "description": "Stores information about the modules. This data is publicly readable.",
+          "params": [
+            {
+              "name": "moduleId",
+              "description": "The unique identifier for the module."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to securely manage user data and progress within the Aether Academy application. The core principle is Authorization Independence, achieved through path-based ownership and denormalization, eliminating the need for `get()` calls in security rules. This structure also prioritizes simplicity and debuggability, adhering to the DBAC principle (Database-Based Access Control), avoiding custom claims. The structure is explicitly designed to enable secure `list` operations, ensuring that security rules are not used as filters.\n\nThe structure implements path-based ownership for user-specific data, such as progress. This ensures that only the authenticated user can access their own data. Specifically, user progress is stored under `/users/{userId}/progress/{progressId}`. This approach supports atomic operations and simplifies security rules, as access control can be directly tied to the path structure.\n\nThe `modules` collection stores information about each module.  Since module information is considered global and not user-specific, it resides in a top-level collection. No authorization context is relevant for modules, since these are public objects.\n\nThis design supports the QAPs (Rules are not Filters) principle by ensuring that list operations are inherently secure due to the path-based ownership model. A user can only list the progress documents under their own user ID, preventing unauthorized access to other users' data."
+  }
+}
