@@ -39,27 +39,28 @@
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "User",
       "type": "object",
-      "description": "Represents a user of the Aether Academy platform. Authentication details are managed externally (e.g., Firebase Authentication).",
+      "description": "Represents a user of the Aether Academy platform.",
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the User entity."
+          "description": "Unique identifier for the User entity, same as Firebase Auth UID."
         },
         "email": {
           "type": "string",
           "description": "Email address of the user.",
           "format": "email"
         },
-        "registrationDate": {
-          "type": "string",
-          "description": "Date and time when the user registered.",
-          "format": "date-time"
+        "completedModules": {
+          "type": "array",
+          "description": "An array of module IDs that the user has completed.",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
         "id",
-        "email",
-        "registrationDate"
+        "email"
       ]
     },
     "Module": {

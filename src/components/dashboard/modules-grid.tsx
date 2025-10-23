@@ -2,17 +2,20 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import {
-  arrayRemove,
-  arrayUnion,
   doc,
   getDoc,
-  updateDoc,
 } from 'firebase/firestore';
-
-import { useFirestore, useUser, updateDocumentNonBlocking, setDocumentNonBlocking } from '@/firebase';
+import {
+  useFirestore, 
+  useUser, 
+  updateDocumentNonBlocking, 
+  setDocumentNonBlocking 
+} from '@/firebase';
 import { modules } from '@/lib/modules';
 import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
+import { arrayRemove, arrayUnion } from 'firebase/firestore';
+
 
 export function ModulesGrid() {
   const { user } = useUser();
@@ -25,20 +28,27 @@ export function ModulesGrid() {
       if (!user) return;
       setIsLoading(true);
       const userDocRef = doc(firestore, 'users', user.uid);
-      const userDoc = await getDoc(userDocRef);
+      try {
+        const userDoc = await getDoc(userDocRef);
 
-      if (userDoc.exists()) {
-        setCompletedModules(userDoc.data().completedModules || []);
-      } else {
-        // If user doc doesn't exist, create it
-        setDocumentNonBlocking(userDocRef, {
-          email: user.email,
-          uid: user.uid,
-          completedModules: [],
-        }, { merge: false });
-        setCompletedModules([]);
+        if (userDoc.exists()) {
+          setCompletedModules(userDoc.data().completedModules || []);
+        } else {
+          // If user doc doesn't exist, create it with the correct schema
+          const userDocData = {
+            id: user.uid,
+            email: user.email,
+            completedModules: [],
+          };
+          setDocumentNonBlocking(userDocRef, userDocData, { merge: false });
+          setCompletedModules([]);
+        }
+      } catch (error) {
+        console.error("Error fetching or creating user document:", error);
+        // Optionally handle the error in the UI
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     }
 
     fetchProgress();
@@ -65,8 +75,9 @@ export function ModulesGrid() {
           : arrayUnion(moduleId),
       });
     } catch (error) {
-      // Revert on failure, though non-blocking handles this differently
+      // Revert on failure
       setCompletedModules(oldCompletedModules);
+      console.error("Error updating completed modules:", error);
     }
   }, [user, firestore, completedModules]);
 

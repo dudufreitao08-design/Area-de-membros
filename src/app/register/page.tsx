@@ -70,14 +70,15 @@ export default function RegisterPage() {
       );
       const user = userCredential.user;
 
+      // The user document now matches the backend.json schema
       const userDocData = {
+        id: user.uid,
         email: user.email,
-        uid: user.uid,
-        completedModules: []
+        completedModules: [],
       };
 
       setDocumentNonBlocking(
-        doc(firestore, "users", user.uid), 
+        doc(firestore, 'users', user.uid),
         userDocData,
         { merge: false }
       );
