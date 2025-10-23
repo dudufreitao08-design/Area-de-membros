@@ -23,11 +23,11 @@ import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
 
 const modules: Module[] = [
-  { id: 'module-1', title: 'Introdução', icon: BookOpen, imageUrl: 'https://imgur.com/a/Plm2vse.png' },
-  { id: 'module-2', title: 'Estratégias', icon: Target, imageUrl: 'https://imgur.com/a/uhBUeQU.png' },
-  { id: 'module-3', title: 'Implementação', icon: ClipboardCheck, imageUrl: 'https://imgur.com/a/fCfC4kC.png' },
-  { id: 'module-4', title: 'Testes', icon: FlaskConical, imageUrl: 'https://imgur.com/a/ZaqEu4o.png' },
-  { id: 'module-5', title: 'Escala', icon: TrendingUp, imageUrl: 'https://imgur.com/a/QbOBO6V.png' },
+  { id: 'module-1', title: 'Introdução', icon: BookOpen, imageUrl: 'https://i.imgur.com/Plm2vse.png' },
+  { id: 'module-2', title: 'Estratégias', icon: Target, imageUrl: 'https://i.imgur.com/uhBUeQU.png' },
+  { id: 'module-3', title: 'Implementação', icon: ClipboardCheck, imageUrl: 'https://i.imgur.com/fCfC4kC.png' },
+  { id: 'module-4', title: 'Testes', icon: FlaskConical, imageUrl: 'https://i.imgur.com/ZaqEu4o.png' },
+  { id: 'module-5', title: 'Escala', icon: TrendingUp, imageUrl: 'https://i.imgur.com/QbOBO6V.png' },
 ];
 
 export function ModulesGrid() {
