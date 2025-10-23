@@ -40,7 +40,7 @@ export function DashboardHeader() {
           className="flex items-center gap-2 font-semibold"
         >
           <Logo className="h-6 w-6" />
-          <span className="text-lg">Aether Academy</span>
+          <span className="text-lg">🌙 Código Do Sono</span>
         </Link>
       </nav>
       <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">

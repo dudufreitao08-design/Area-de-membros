@@ -4,7 +4,7 @@ import { AuthProvider } from '@/providers/auth-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Aether Academy',
+  title: '🌙 Código Do Sono',
   description: 'A modern members area for online courses.',
 };
 
