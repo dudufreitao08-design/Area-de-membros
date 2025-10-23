@@ -72,7 +72,7 @@ export default function LoginPage() {
     <AuthLayout>
       <Card className="w-full max-w-sm border-none bg-card/80 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="text-2xl">Bem-vindo de volta!</CardTitle>
           <CardDescription>
             Entre na sua conta para acessar os módulos.
           </CardDescription>
