@@ -7,9 +7,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc } from 'firebase/firestore';
 
-import { auth, db } from '@/lib/firebase';
+import { useAuth, useFirestore, setDocumentNonBlocking } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { AuthLayout } from '@/components/auth-layout';
 import { Button } from '@/components/ui/button';
@@ -46,6 +46,8 @@ const formSchema = z
 
 export default function RegisterPage() {
   const router = useRouter();
+  const auth = useAuth();
+  const firestore = useFirestore();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -68,12 +70,17 @@ export default function RegisterPage() {
       );
       const user = userCredential.user;
 
-      // Create user document in Firestore
-      await setDoc(doc(db, "users", user.uid), {
+      const userDocData = {
         email: user.email,
         uid: user.uid,
         completedModules: []
-      });
+      };
+
+      setDocumentNonBlocking(
+        doc(firestore, "users", user.uid), 
+        userDocData,
+        { merge: false }
+      );
 
       router.push('/');
     } catch (error: any) {
@@ -85,7 +92,6 @@ export default function RegisterPage() {
             ? 'Este email já está em uso.'
             : 'Ocorreu um erro ao criar sua conta.',
       });
-      console.error('Registration error:', error);
     } finally {
       setIsLoading(false);
     }

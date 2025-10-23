@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-import { auth } from '@/lib/firebase';
+import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { AuthLayout } from '@/components/auth-layout';
 import { Button } from '@/components/ui/button';
@@ -39,6 +39,7 @@ const formSchema = z.object({
 
 export default function LoginPage() {
   const router = useRouter();
+  const auth = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,7 +63,6 @@ export default function LoginPage() {
         description:
           'Credenciais inválidas. Por favor, verifique seu email e senha.',
       });
-      console.error('Login error:', error);
     } finally {
       setIsLoading(false);
     }

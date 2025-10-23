@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
-import { auth } from '@/lib/firebase';
+import { useAuth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { AuthLayout } from '@/components/auth-layout';
 import { Button } from '@/components/ui/button';
@@ -34,6 +34,7 @@ const formSchema = z.object({
 });
 
 export default function ForgotPasswordPage() {
+  const auth = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -60,7 +61,6 @@ export default function ForgotPasswordPage() {
         title: 'Erro',
         description: 'Não foi possível enviar o email de redefinição. Verifique o email informado.',
       });
-      console.error('Password reset error:', error);
     } finally {
       setIsLoading(false);
     }

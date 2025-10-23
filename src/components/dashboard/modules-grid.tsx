@@ -17,9 +17,8 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-import { db } from '@/lib/firebase';
+import { useFirestore, useUser, setDocumentNonBlocking, updateDocumentNonBlocking } from '@/firebase';
 import type { Module } from '@/lib/types';
-import { useAuth } from '@/hooks/use-auth';
 import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
 
@@ -32,7 +31,8 @@ const modules: Module[] = [
 ];
 
 export function ModulesGrid() {
-  const { user } = useAuth();
+  const { user } = useUser();
+  const firestore = useFirestore();
   const [completedModules, setCompletedModules] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,30 +40,30 @@ export function ModulesGrid() {
     async function fetchProgress() {
       if (!user) return;
       setIsLoading(true);
-      const userDocRef = doc(db, 'users', user.uid);
+      const userDocRef = doc(firestore, 'users', user.uid);
       const userDoc = await getDoc(userDocRef);
 
       if (userDoc.exists()) {
         setCompletedModules(userDoc.data().completedModules || []);
       } else {
         // If user doc doesn't exist, create it
-        await setDoc(userDocRef, {
+        setDocumentNonBlocking(userDocRef, {
           email: user.email,
           uid: user.uid,
           completedModules: [],
-        });
+        }, { merge: false });
         setCompletedModules([]);
       }
       setIsLoading(false);
     }
 
     fetchProgress();
-  }, [user]);
+  }, [user, firestore]);
 
   const handleToggleComplete = useCallback(async (moduleId: string) => {
     if (!user) return;
 
-    const userDocRef = doc(db, 'users', user.uid);
+    const userDocRef = doc(firestore, 'users', user.uid);
     const isCompleted = completedModules.includes(moduleId);
     const oldCompletedModules = [...completedModules];
     
@@ -75,17 +75,16 @@ export function ModulesGrid() {
     );
 
     try {
-      await updateDoc(userDocRef, {
+      updateDocumentNonBlocking(userDocRef, {
         completedModules: isCompleted
           ? arrayRemove(moduleId)
           : arrayUnion(moduleId),
       });
     } catch (error) {
-      console.error("Failed to update progress:", error);
-      // Revert on failure
+      // Revert on failure, though non-blocking handles this differently
       setCompletedModules(oldCompletedModules);
     }
-  }, [user, completedModules]);
+  }, [user, firestore, completedModules]);
 
   if (isLoading) {
     return (

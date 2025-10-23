@@ -2,22 +2,22 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/use-auth';
+import { useUser } from '@/firebase';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { ModulesGrid } from '@/components/dashboard/modules-grid';
 import { FullPageLoader } from '@/components/ui/loader';
 
 export default function DashboardPage() {
-  const { user, loading } = useAuth();
+  const { user, isUserLoading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!isUserLoading && !user) {
       router.replace('/login');
     }
-  }, [user, loading, router]);
+  }, [user, isUserLoading, router]);
 
-  if (loading || !user) {
+  if (isUserLoading || !user) {
     return <FullPageLoader />;
   }
 
