@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import type { Module } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ModuleCardProps {
   module: Module;
@@ -13,8 +13,8 @@ interface ModuleCardProps {
 
 export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCardProps) {
   return (
-    <Card className="group relative flex h-[420px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
-      <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6 pt-0">
+    <Card className="group relative flex h-[560px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
+      <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6">
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {isCompleted && (
