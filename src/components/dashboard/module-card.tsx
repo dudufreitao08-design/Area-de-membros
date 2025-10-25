@@ -15,8 +15,7 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
   const Icon = module.icon;
   return (
     <Card className="group relative flex h-[420px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
-      <CardHeader className="relative z-10 flex flex-row items-start justify-between space-y-0 pb-2">
-        <CardTitle className="text-xl font-bold">{module.title}</CardTitle>
+      <CardHeader className="relative z-10 flex flex-row items-start justify-end space-y-0 pb-2">
         <Icon className="h-7 w-7 text-muted-foreground" />
       </CardHeader>
       <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6 pt-0">
