@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import type { Module } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface ModuleCardProps {
   module: Module;
@@ -12,12 +12,8 @@ interface ModuleCardProps {
 }
 
 export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCardProps) {
-  const Icon = module.icon;
   return (
     <Card className="group relative flex h-[420px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
-      <CardHeader className="relative z-10 flex flex-row items-start justify-end space-y-0 pb-2">
-        <Icon className="h-7 w-7 text-muted-foreground" />
-      </CardHeader>
       <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6 pt-0">
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -41,7 +37,8 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
       <Image
         src={module.imageUrl}
         alt={module.title}
-        fill
+        width={module.width}
+        height={module.height}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-300"
       />
       {isCompleted && (
