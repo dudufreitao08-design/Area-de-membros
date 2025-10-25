@@ -11,16 +11,22 @@ interface ModuleCardProps {
   onToggleComplete: () => void;
 }
 
-export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCardProps) {
+export function ModuleCard({
+  module,
+  isCompleted,
+  onToggleComplete,
+}: ModuleCardProps) {
   return (
-    <Card className="group relative flex h-[560px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
+    <Card className="group relative flex h-[420px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20 md:h-[560px]">
       <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6">
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {isCompleted && (
               <>
                 <CheckCircle2 className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium text-primary">Concluído</span>
+                <span className="text-sm font-medium text-primary">
+                  Concluído
+                </span>
               </>
             )}
           </div>

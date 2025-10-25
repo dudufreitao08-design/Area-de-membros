@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import {
   doc,
   getDoc,
+  arrayRemove,
+  arrayUnion
 } from 'firebase/firestore';
 import {
   useFirestore, 
@@ -14,7 +16,6 @@ import {
 import { modules } from '@/lib/modules';
 import { ModuleCard } from '@/components/dashboard/module-card';
 import { Skeleton } from '../ui/skeleton';
-import { arrayRemove, arrayUnion } from 'firebase/firestore';
 
 
 export function ModulesGrid() {
@@ -83,7 +84,7 @@ export function ModulesGrid() {
 
   if (isLoading) {
     return (
-      <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-6xl items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 5 }).map((_, index) => (
           <Skeleton key={index} className="h-48 rounded-lg" />
         ))}
@@ -92,7 +93,7 @@ export function ModulesGrid() {
   }
 
   return (
-    <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto grid w-full max-w-6xl items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
       {modules.map((module) => (
         <ModuleCard
           key={module.id}
