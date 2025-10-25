@@ -14,7 +14,7 @@ interface ModuleCardProps {
 export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCardProps) {
   const Icon = module.icon;
   return (
-    <Card className="group relative flex h-[350px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
+    <Card className="group relative flex h-[420px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
       <CardHeader className="relative z-10 flex flex-row items-start justify-between space-y-0 pb-2">
         <CardTitle className="text-xl font-bold">{module.title}</CardTitle>
         <Icon className="h-7 w-7 text-muted-foreground" />
@@ -42,8 +42,9 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
       <Image
         src={module.imageUrl}
         alt={module.title}
-        fill
-        className="object-contain p-8 transition-transform duration-300"
+        width={module.width}
+        height={module.height}
+        className="absolute inset-0 h-full w-full object-contain p-8 transition-transform duration-300"
       />
       {isCompleted && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>

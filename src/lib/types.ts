@@ -5,4 +5,6 @@ export interface Module {
   title: string;
   icon: LucideIcon;
   imageUrl: string;
+  width: number;
+  height: number;
 }
