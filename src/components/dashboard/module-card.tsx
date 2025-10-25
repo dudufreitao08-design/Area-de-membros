@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import type { Module } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface ModuleCardProps {
   module: Module;
@@ -14,13 +14,12 @@ interface ModuleCardProps {
 export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCardProps) {
   const Icon = module.icon;
   return (
-    <Card className="group relative flex h-full flex-col overflow-hidden border-2 border-transparent bg-card/50 backdrop-blur-sm transition-all hover:border-primary/50">
-      <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2 z-10">
-        <CardTitle className="text-lg font-medium">{module.title}</CardTitle>
-        <Icon className="h-6 w-6 text-muted-foreground" />
+    <Card className="group relative flex h-[350px] flex-col overflow-hidden border-2 border-transparent bg-card/50 shadow-lg transition-all hover:border-primary/50 hover:shadow-primary/20">
+      <CardHeader className="relative z-10 flex flex-row items-start justify-between space-y-0 pb-2">
+        <CardTitle className="text-xl font-bold">{module.title}</CardTitle>
+        <Icon className="h-7 w-7 text-muted-foreground" />
       </CardHeader>
-      <CardContent className="flex flex-1 flex-col justify-between pt-0 z-10">
-        <div className="flex-grow"></div>
+      <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6 pt-0">
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {isCompleted && (
@@ -34,6 +33,7 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
             variant={isCompleted ? 'secondary' : 'default'}
             size="sm"
             onClick={onToggleComplete}
+            className="font-semibold"
           >
             {isCompleted ? 'Desmarcar' : 'Concluir'}
           </Button>
@@ -46,9 +46,9 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
       {isCompleted && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent z-10"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 transition-opacity group-hover:from-black/70 z-0"></div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity group-hover:from-black/90"></div>
     </Card>
   );
 }
