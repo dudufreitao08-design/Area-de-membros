@@ -84,7 +84,7 @@ export function ModulesGrid() {
 
   if (isLoading) {
     return (
-      <div className="mx-auto grid w-full max-w-6xl items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-4 lg:grid-cols-3">
         {Array.from({ length: 5 }).map((_, index) => (
           <Skeleton key={index} className="h-48 rounded-lg" />
         ))}
@@ -93,7 +93,7 @@ export function ModulesGrid() {
   }
 
   return (
-    <div className="mx-auto grid w-full max-w-6xl items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-4 lg:grid-cols-3">
       {modules.map((module) => (
         <ModuleCard
           key={module.id}
