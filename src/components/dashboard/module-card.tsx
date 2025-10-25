@@ -43,7 +43,7 @@ export function ModuleCard({ module, isCompleted, onToggleComplete }: ModuleCard
         src={module.imageUrl}
         alt={module.title}
         fill
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        className="object-contain p-8 transition-transform duration-300"
       />
       {isCompleted && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
