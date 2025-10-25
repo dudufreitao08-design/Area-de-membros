@@ -16,7 +16,7 @@ export const modules: Module[] = [
     icon: Target,
     imageUrl: 'https://i.imgur.com/uhBUeQU.png',
     width: 1080,
-    height: 1080,
+    height: 1920,
   },
   {
     id: 'module-3',
@@ -24,7 +24,7 @@ export const modules: Module[] = [
     icon: ClipboardCheck,
     imageUrl: 'https://i.imgur.com/fCfC4kC.png',
     width: 1080,
-    height: 1080,
+    height: 1920,
   },
   {
     id: 'module-4',
@@ -32,7 +32,7 @@ export const modules: Module[] = [
     icon: FlaskConical,
     imageUrl: 'https://i.imgur.com/ZaqEu4o.png',
     width: 1080,
-    height: 1080,
+    height: 1920,
   },
   {
     id: 'module-5',
@@ -40,6 +40,6 @@ export const modules: Module[] = [
     icon: TrendingUp,
     imageUrl: 'https://i.imgur.com/QbOBO6V.png',
     width: 1080,
-    height: 1080,
+    height: 1920,
   },
 ];
