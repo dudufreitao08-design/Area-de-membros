@@ -82,7 +82,7 @@ export default function CompletedPage() {
              <h1 className="text-3xl font-semibold">Aulas Concluídas</h1>
           </div>
           <p className="text-muted-foreground">
-            Você concluiu {filteredModules.length} de {modules.length} aulas. Continue assim!
+            Você concluiu {filteredModules.length} de {modules.length} aulas.
           </p>
         </div>
         
