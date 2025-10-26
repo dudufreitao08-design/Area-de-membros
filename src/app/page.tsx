@@ -31,7 +31,10 @@ export default function DashboardPage() {
         greeting = 'Boa noite';
       }
 
-      const name = user.displayName || user.email || 'usuário';
+      // Prioritize displayName, then formatted email, then a fallback.
+      const name = user.displayName 
+        || (user.email ? user.email.split('@')[0] : 'usuário');
+        
       setWelcomeMessage(`${greeting}, ${name}.`);
     } else {
         setWelcomeMessage('Olá.');
