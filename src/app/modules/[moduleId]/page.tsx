@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useParams } from 'next/navigation';
@@ -12,12 +13,10 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
-  CheckCircle,
   Download,
   FileText,
   Link as LinkIcon,
   PlayCircle,
-  Target,
   Info,
 } from 'lucide-react';
 
@@ -64,7 +63,6 @@ const moduleData: { [key: string]: any } = {
         icon: FileText,
       },
     ],
-    estimatedTime: '45–60 minutos',
     instructorNote:
       'Assista aos vídeos na ordem e realize anotações rápidas ao final de cada vídeo. Experimente as práticas por pelo menos 7 noites e registre melhorias no diário de sono. Se algo não funcionar, ajuste pequenos detalhes (luz, temperatura, horário).',
   },
@@ -154,25 +152,6 @@ export default function ModulePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/70">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-primary" />
-                    Objetivos de Aprendizagem
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {content.learningObjectives.map((obj: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-sm">
-                        <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                        <span className="text-muted-foreground">{obj}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </CardContent>
               </Card>
 
