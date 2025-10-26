@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { Users, Wifi, MessageCircle } from 'lucide-react';
 import { DashboardHeader } from '@/components/dashboard/header';
 
@@ -11,7 +12,7 @@ export default function CommunityPage() {
         <div className="relative w-full max-w-4xl text-center">
           <div className="absolute inset-0 z-0 opacity-10">
             {[...Array(5)].map((_, i) => (
-              <>
+              <React.Fragment key={`icon-group-${i}`}>
                 <Users
                   key={`users-${i}`}
                   className="absolute text-blue-400/50"
@@ -42,7 +43,7 @@ export default function CommunityPage() {
                     animation: `float ${(Math.random() + 3) * 2}s ease-in-out infinite`,
                   }}
                 />
-              </>
+              </React.Fragment>
             ))}
             <style jsx>{`
               @keyframes float {
