@@ -69,7 +69,6 @@ export default function CommunityPage() {
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
               A área da Comunidade está em desenvolvimento e será o nosso ponto de encontro. Em breve, você poderá se conectar, tirar dúvidas e compartilhar experiências.
             </p>
-            <div className="mt-8 h-1 w-24 rounded-full bg-primary"></div>
           </div>
         </div>
       </main>
