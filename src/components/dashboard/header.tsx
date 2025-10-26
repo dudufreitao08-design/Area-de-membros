@@ -88,55 +88,57 @@ export function DashboardHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-[120px] w-full flex-col justify-end">
+    <header className="sticky top-0 z-30 flex h-[100px] w-full flex-col justify-end">
       {/* Background Gradient */}
       <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-[#0b132b] to-[#1c2541]"></div>
       {/* Subtle Glow */}
       <div className="absolute top-0 left-1/2 z-[-1] h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-b from-blue-900/20 to-transparent opacity-50 blur-3xl"></div>
       
       {/* Desktop Navigation */}
-      <nav className="relative hidden items-center justify-center gap-12 border-b border-white/5 bg-transparent px-4 py-2 md:flex">
+      <nav className="relative hidden w-full items-center justify-center border-b border-white/5 bg-transparent px-4 py-2 md:flex">
          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        <div className="absolute left-4 top-1/2 -translate-y-1/2">
-            <Link href="/" className="text-xl font-bold tracking-tight text-white">
+        <div className="flex w-full max-w-4xl items-center justify-center gap-12">
+            <Link href="/" className="mr-auto text-xl font-bold tracking-tight text-white">
             🌙 Código Do Sono
             </Link>
-        </div>
-        
-        {navItems.map((item) => (
-          <NavLink key={item.label} item={item} />
-        ))}
-        
-        <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                <Avatar className="h-9 w-9 border-2 border-transparent group-hover:border-primary">
-                    <AvatarImage src={user?.photoURL || ''} alt="User avatar" />
-                    <AvatarFallback className="bg-primary/20 font-bold text-primary">
-                    {getInitials(user?.email)}
-                    </AvatarFallback>
-                </Avatar>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none text-foreground">
-                    Minha Conta
-                    </p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                    {user?.email}
-                    </p>
-                </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
-                <LogOut className="mr-2 h-4 w-4" />
-                <span>Sair</span>
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-            </DropdownMenu>
+            
+            <div className="flex items-center gap-12">
+              {navItems.map((item) => (
+                <NavLink key={item.label} item={item} />
+              ))}
+            </div>
+            
+            <div className="ml-auto">
+                <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="relative h-9 w-9 rounded-full">
+                    <Avatar className="h-9 w-9 border-2 border-transparent group-hover:border-primary">
+                        <AvatarImage src={user?.photoURL || ''} alt="User avatar" />
+                        <AvatarFallback className="bg-primary/20 font-bold text-primary">
+                        {getInitials(user?.email)}
+                        </AvatarFallback>
+                    </Avatar>
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium leading-none text-foreground">
+                        Minha Conta
+                        </p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                        {user?.email}
+                        </p>
+                    </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sair</span>
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
         </div>
       </nav>
 
