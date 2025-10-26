@@ -52,7 +52,7 @@ export default function DashboardPage() {
       <main className="flex flex-1 flex-col gap-4 p-4 pb-28 md:gap-8 md:p-6 md:pb-32 lg:p-8 lg:pb-32">
         <div className="mx-auto grid w-full max-w-6xl items-start gap-4 text-center">
           <h1 className="text-3xl font-semibold">{welcomeMessage}</h1>
-          <p className="text-muted-foreground">Bem-vindo(a) de volta ao Código Do Sono.</p>
+          <p className="text-muted-foreground">Bem-vindo(a) de volta ao Código Do Sono. Explore nossas aulas.</p>
         </div>
         <ModulesGrid />
       </main>
