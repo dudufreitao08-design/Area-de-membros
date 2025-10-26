@@ -8,7 +8,6 @@ import {
   User as UserIcon,
   Moon,
   MessageSquare,
-  HelpCircle,
   Settings,
   Menu,
 } from 'lucide-react';
@@ -33,7 +32,6 @@ import {
 const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
   { href: '/community', label: 'Comunidade', icon: MessageSquare },
-  { href: '#', label: 'Ajuda', icon: HelpCircle },
   { href: '/settings', label: 'Configurações', icon: Settings },
 ];
 
