@@ -5,7 +5,6 @@ import { signOut } from 'firebase/auth';
 import {
   User,
   Info,
-  ShieldCheck,
   ChevronRight,
   LogOut,
   Settings as SettingsIcon,
@@ -22,7 +21,6 @@ import { Separator } from '@/components/ui/separator';
 
 const settingsItems = [
   { icon: User, title: 'Perfil', description: 'Veja e edite seus dados' },
-  { icon: ShieldCheck, title: 'Segurança', description: 'Altere sua senha' },
 ];
 
 export default function SettingsPage() {
