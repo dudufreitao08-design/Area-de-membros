@@ -95,7 +95,7 @@ export function DashboardHeader() {
       {/* Desktop Navigation */}
       <nav className="relative hidden w-full items-center justify-center border-t border-white/5 bg-transparent px-4 py-2 md:flex">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        <div className="flex w-full max-w-4xl items-center justify-center gap-12">
+        <div className="flex w-full max-w-4xl items-center justify-between">
           <Link
             href="/"
             className="mr-auto text-xl font-bold tracking-tight text-white"
@@ -103,7 +103,7 @@ export function DashboardHeader() {
             🌙 Código Do Sono
           </Link>
 
-          <div className="flex items-center gap-12">
+          <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-12">
             {navItems.map((item) => (
               <NavLink key={item.label} item={item} />
             ))}
