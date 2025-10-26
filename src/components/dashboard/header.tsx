@@ -110,53 +110,6 @@ export function DashboardHeader() {
           {navItems.map((item) => (
             <NavLink key={item.label} item={item} />
           ))}
-
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="p-0">
-                <Menu className="h-6 w-6 text-blue-400" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="bottom" className="h-auto rounded-t-2xl border-none bg-[#0b132b] p-6">
-              <div className="flex flex-col gap-4 pt-4">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="flex w-full items-center justify-start gap-3 p-2 text-left"
-                    >
-                      <Avatar className="h-9 w-9">
-                        <AvatarImage
-                          src={user?.photoURL || ''}
-                          alt="User avatar"
-                        />
-                        <AvatarFallback className="bg-primary/20 font-bold text-primary">
-                          {getInitials(user?.email)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex flex-col">
-                        <p className="text-sm font-medium leading-none text-foreground">
-                          Minha Conta
-                        </p>
-                        <p className="text-xs leading-none text-muted-foreground">
-                          {user?.email}
-                        </p>
-                      </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <DropdownMenuItem
-                      onClick={handleLogout}
-                      className="cursor-pointer"
-                    >
-                      <LogOut className="mr-2 h-4 w-4" />
-                      <span>Sair</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>
