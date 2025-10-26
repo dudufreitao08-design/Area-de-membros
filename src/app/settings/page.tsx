@@ -17,14 +17,11 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 const settingsItems = [
   { icon: User, title: 'Perfil', description: 'Veja e edite seus dados' },
-  { icon: Info, title: 'Informações', description: 'Sobre o app e termos de uso' },
   { icon: ShieldCheck, title: 'Segurança', description: 'Altere sua senha' },
 ];
 
@@ -75,11 +72,35 @@ export default function SettingsPage() {
               </div>
             </CardContent>
           </Card>
+          
+          {/* Information Block */}
+          <Card className="mt-8 border-none bg-[#16213e]/50 backdrop-blur-sm">
+            <CardContent className="p-6">
+              <div className="flex items-center">
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
+                  <Info className="h-6 w-6 text-accent" />
+                </div>
+                <h2 className="text-xl font-semibold text-foreground">Informações</h2>
+              </div>
+              <div className="mt-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-muted-foreground">Versão do aplicativo</p>
+                  <p className="font-medium text-accent">1.0.0</p>
+                </div>
+                <Separator className="bg-border/50" />
+                <div className="flex items-center justify-between">
+                  <p className="text-muted-foreground">Última atualização</p>
+                  <p className="font-medium text-accent">Hoje</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           <div className="mt-8">
             <Button
               onClick={handleLogout}
-              className="w-full bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              className="w-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/20 hover:text-yellow-300"
+              variant="outline"
               size="lg"
             >
               <LogOut className="mr-2 h-5 w-5" />
