@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/firebase';
 import { DashboardHeader } from '@/components/dashboard/header';
@@ -10,6 +10,7 @@ import { FullPageLoader } from '@/components/ui/loader';
 export default function DashboardPage() {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
+  const [welcomeMessage, setWelcomeMessage] = useState('');
 
   useEffect(() => {
     if (!isUserLoading && !user) {
@@ -17,11 +18,29 @@ export default function DashboardPage() {
     }
   }, [user, isUserLoading, router]);
 
+  useEffect(() => {
+    if (user) {
+      const currentHour = new Date().getHours();
+      let greeting;
+
+      if (currentHour >= 5 && currentHour < 12) {
+        greeting = 'Bom dia';
+      } else if (currentHour >= 12 && currentHour < 18) {
+        greeting = 'Boa tarde';
+      } else {
+        greeting = 'Boa noite';
+      }
+
+      const name = user.displayName || user.email || 'usuário';
+      setWelcomeMessage(`${greeting}, ${name}.`);
+    } else {
+        setWelcomeMessage('Olá.');
+    }
+  }, [user]);
+
   if (isUserLoading || !user) {
     return <FullPageLoader />;
   }
-  
-  const welcomeMessage = user?.displayName ? `Olá, ${user.displayName}.` : 'Olá.';
 
   return (
     <div className="flex min-h-screen w-full flex-col">
