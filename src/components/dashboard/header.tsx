@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import {
   LogOut,
@@ -32,7 +32,7 @@ import {
 
 const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
-  { href: '#', label: 'Comunidade', icon: MessageSquare },
+  { href: '/community', label: 'Comunidade', icon: MessageSquare },
   { href: '#', label: 'Ajuda', icon: HelpCircle },
   { href: '#', label: 'Configurações', icon: Settings },
 ];
@@ -41,6 +41,7 @@ export function DashboardHeader() {
   const { user } = useUser();
   const auth = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -53,14 +54,13 @@ export function DashboardHeader() {
 
   const NavLink = ({
     item,
-    isActive,
     isMobile = false,
   }: {
     item: typeof navItems[0];
-    isActive: boolean;
     isMobile?: boolean;
   }) => {
     const Icon = item.icon;
+    const isActive = pathname === item.href;
     return (
       <Link
         href={item.href}
@@ -104,7 +104,7 @@ export function DashboardHeader() {
         </div>
         
         {navItems.map((item) => (
-          <NavLink key={item.label} item={item} isActive={item.label === 'Principal'} />
+          <NavLink key={item.label} item={item} />
         ))}
         
         <div className="absolute right-4 top-1/2 -translate-y-1/2">
@@ -154,7 +154,7 @@ export function DashboardHeader() {
           <SheetContent side="right" className="w-[280px] bg-[#0b132b] p-6">
             <div className="flex flex-col gap-8 pt-8">
               {navItems.map((item) => (
-                <NavLink key={item.label} item={item} isActive={item.label === 'Principal'} isMobile />
+                <NavLink key={item.label} item={item} isMobile />
               ))}
             </div>
             <div className="absolute bottom-6 left-6 right-6">
