@@ -7,7 +7,6 @@ import {
   LogOut,
   User as UserIcon,
   Moon,
-  BookCopy,
   MessageSquare,
   HelpCircle,
   Settings,
@@ -33,7 +32,6 @@ import {
 
 const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
-  { href: '#', label: 'Também quero', icon: BookCopy },
   { href: '#', label: 'Comunidade', icon: MessageSquare },
   { href: '#', label: 'Ajuda', icon: HelpCircle },
   { href: '#', label: 'Configurações', icon: Settings },
