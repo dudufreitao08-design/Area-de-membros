@@ -95,61 +95,11 @@ export function DashboardHeader() {
       {/* Desktop Navigation */}
       <nav className="relative hidden w-full items-center justify-center border-t border-white/5 bg-transparent px-4 py-2 md:flex">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        <div className="flex w-full max-w-4xl items-center">
-          <div className="flex flex-1 justify-start">
-            <Link
-              href="/"
-              className="text-xl font-bold tracking-tight text-white"
-            >
-              🌙 Código Do Sono
-            </Link>
-          </div>
-
+        <div className="flex w-full max-w-4xl items-center justify-center">
           <div className="flex justify-center gap-12">
             {navItems.map((item) => (
               <NavLink key={item.label} item={item} />
             ))}
-          </div>
-
-          <div className="flex flex-1 justify-end">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="relative h-9 w-9 rounded-full"
-                >
-                  <Avatar className="h-9 w-9 border-2 border-transparent group-hover:border-primary">
-                    <AvatarImage
-                      src={user?.photoURL || ''}
-                      alt="User avatar"
-                    />
-                    <AvatarFallback className="bg-primary/20 font-bold text-primary">
-                      {getInitials(user?.email)}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none text-foreground">
-                      Minha Conta
-                    </p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                      {user?.email}
-                    </p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  onClick={handleLogout}
-                  className="cursor-pointer"
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Sair</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
         </div>
       </nav>
