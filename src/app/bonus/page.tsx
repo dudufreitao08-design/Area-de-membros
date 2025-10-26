@@ -21,7 +21,7 @@ export default function BonusPage() {
           </p>
         </div>
 
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {bonuses.map((bonus) => (
             <ModuleCard
               key={bonus.id}
