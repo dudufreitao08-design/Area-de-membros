@@ -30,7 +30,7 @@ export const modules: Module[] = [
     id: 'module-4',
     title: 'Testes',
     icon: FlaskConical,
-    imageUrl: 'https://i.imgur.com/sJ4ziEh.png',
+    imageUrl: 'https://i.imgur.com/VCBs7FJ.jpeg',
     width: 1080,
     height: 1920,
   },
