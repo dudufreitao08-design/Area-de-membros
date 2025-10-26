@@ -34,7 +34,7 @@ const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
   { href: '/community', label: 'Comunidade', icon: MessageSquare },
   { href: '#', label: 'Ajuda', icon: HelpCircle },
-  { href: '#', label: 'Configurações', icon: Settings },
+  { href: '/settings', label: 'Configurações', icon: Settings },
 ];
 
 export function DashboardHeader() {
