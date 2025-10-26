@@ -31,7 +31,7 @@ export default function SettingsPage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <DashboardHeader />
-      <main className="flex flex-1 flex-col items-center bg-gradient-to-b from-[#0b132b] to-[#1c2541] p-4 pt-12 md:p-6 lg:p-8">
+      <main className="flex flex-1 flex-col items-center bg-gradient-to-b from-[#0b132b] to-[#1c2541] p-4 pt-12 pb-28 md:p-6 md:pb-32 lg:p-8 lg:pb-32">
         <div className="w-full max-w-2xl">
           <div className="mb-8 flex flex-col items-center text-center">
             <SettingsIcon className="mb-4 h-12 w-12 text-primary drop-shadow-[0_0_10px_hsl(var(--primary)/0.6)]" />

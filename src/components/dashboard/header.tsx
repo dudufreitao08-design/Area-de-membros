@@ -25,11 +25,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
@@ -58,7 +54,7 @@ export function DashboardHeader() {
     item,
     isMobile = false,
   }: {
-    item: typeof navItems[0];
+    item: (typeof navItems)[0];
     isMobile?: boolean;
   }) => {
     const Icon = item.icon;
@@ -90,107 +86,126 @@ export function DashboardHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-[100px] w-full flex-col justify-end">
+    <header className="fixed bottom-0 z-30 flex h-auto w-full flex-col justify-start">
       {/* Background Gradient */}
-      <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-[#0b132b] to-[#1c2541]"></div>
+      <div className="absolute inset-0 z-[-1] bg-gradient-to-t from-[#0b132b] to-[#1c2541]"></div>
       {/* Subtle Glow */}
-      <div className="absolute top-0 left-1/2 z-[-1] h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-b from-blue-900/20 to-transparent opacity-50 blur-3xl"></div>
-      
+      <div className="absolute bottom-0 left-1/2 z-[-1] h-1/2 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-t from-blue-900/20 to-transparent opacity-50 blur-3xl"></div>
+
       {/* Desktop Navigation */}
-      <nav className="relative hidden w-full items-center justify-center border-b border-white/5 bg-transparent px-4 py-2 md:flex">
-         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      <nav className="relative hidden w-full items-center justify-center border-t border-white/5 bg-transparent px-4 py-2 md:flex">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="flex w-full max-w-4xl items-center justify-center gap-12">
-            <Link href="/" className="mr-auto text-xl font-bold tracking-tight text-white">
+          <Link
+            href="/"
+            className="mr-auto text-xl font-bold tracking-tight text-white"
+          >
             🌙 Código Do Sono
-            </Link>
-            
-            <div className="flex items-center gap-12">
-              {navItems.map((item) => (
-                <NavLink key={item.label} item={item} />
-              ))}
-            </div>
-            
-            <div className="ml-auto">
-                <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                    <Avatar className="h-9 w-9 border-2 border-transparent group-hover:border-primary">
-                        <AvatarImage src={user?.photoURL || ''} alt="User avatar" />
-                        <AvatarFallback className="bg-primary/20 font-bold text-primary">
-                        {getInitials(user?.email)}
-                        </AvatarFallback>
-                    </Avatar>
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                    <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none text-foreground">
-                        Minha Conta
-                        </p>
-                        <p className="text-xs leading-none text-muted-foreground">
-                        {user?.email}
-                        </p>
-                    </div>
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sair</span>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-                </DropdownMenu>
-            </div>
+          </Link>
+
+          <div className="flex items-center gap-12">
+            {navItems.map((item) => (
+              <NavLink key={item.label} item={item} />
+            ))}
+          </div>
+
+          <div className="ml-auto">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="relative h-9 w-9 rounded-full"
+                >
+                  <Avatar className="h-9 w-9 border-2 border-transparent group-hover:border-primary">
+                    <AvatarImage
+                      src={user?.photoURL || ''}
+                      alt="User avatar"
+                    />
+                    <AvatarFallback className="bg-primary/20 font-bold text-primary">
+                      {getInitials(user?.email)}
+                    </AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuLabel className="font-normal">
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-medium leading-none text-foreground">
+                      Minha Conta
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      {user?.email}
+                    </p>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onClick={handleLogout}
+                  className="cursor-pointer"
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Sair</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Navigation */}
       <div className="flex items-center justify-between p-4 md:hidden">
-        <Link href="/" className="text-lg font-bold tracking-tight text-white">
-          🌙 Código Do Sono
-        </Link>
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6 text-white" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] bg-[#0b132b] p-6">
-            <div className="flex flex-col gap-8 pt-8">
-              {navItems.map((item) => (
-                <NavLink key={item.label} item={item} isMobile />
-              ))}
-            </div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex w-full items-center justify-start gap-3 p-2 text-left">
-                    <Avatar className="h-9 w-9">
-                      <AvatarImage src={user?.photoURL || ''} alt="User avatar" />
-                      <AvatarFallback className="bg-primary/20 font-bold text-primary">
-                        {getInitials(user?.email)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="flex flex-col">
-                       <p className="text-sm font-medium leading-none text-foreground">
-                         Minha Conta
-                       </p>
-                       <p className="text-xs leading-none text-muted-foreground">
-                         {user?.email}
-                       </p>
-                    </div>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sair</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </SheetContent>
-        </Sheet>
+        <div className="flex flex-grow items-center justify-around">
+          {navItems.map((item) => (
+            <NavLink key={item.label} item={item} />
+          ))}
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="p-0">
+                <Menu className="h-6 w-6 text-blue-400" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="h-auto rounded-t-2xl border-none bg-[#0b132b] p-6">
+              <div className="flex flex-col gap-4 pt-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="flex w-full items-center justify-start gap-3 p-2 text-left"
+                    >
+                      <Avatar className="h-9 w-9">
+                        <AvatarImage
+                          src={user?.photoURL || ''}
+                          alt="User avatar"
+                        />
+                        <AvatarFallback className="bg-primary/20 font-bold text-primary">
+                          {getInitials(user?.email)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex flex-col">
+                        <p className="text-sm font-medium leading-none text-foreground">
+                          Minha Conta
+                        </p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                          {user?.email}
+                        </p>
+                      </div>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <DropdownMenuItem
+                      onClick={handleLogout}
+                      className="cursor-pointer"
+                    >
+                      <LogOut className="mr-2 h-4 w-4" />
+                      <span>Sair</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

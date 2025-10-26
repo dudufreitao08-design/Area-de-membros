@@ -9,7 +9,7 @@ export default function CommunityPage() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <DashboardHeader />
-      <main className="flex flex-1 items-center justify-center bg-gradient-to-b from-[#0b132b] to-[#1c2541] p-4">
+      <main className="flex flex-1 items-center justify-center bg-gradient-to-b from-[#0b132b] to-[#1c2541] p-4 pb-28 md:pb-32 lg:pb-32">
         <div className="relative w-full max-w-4xl text-center">
           <FloatingIcons />
 

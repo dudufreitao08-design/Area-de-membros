@@ -10,7 +10,7 @@ export default function BonusPage() {
     <div className="flex min-h-screen w-full flex-col">
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
       <DashboardHeader />
-      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 lg:p-8">
+      <main className="flex flex-1 flex-col gap-4 p-4 pb-28 md:gap-8 md:p-6 md:pb-32 lg:p-8 lg:pb-32">
         <div className="mx-auto grid w-full max-w-6xl items-start gap-4">
           <div className="flex items-center gap-3">
             <Gift className="h-8 w-8 text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
