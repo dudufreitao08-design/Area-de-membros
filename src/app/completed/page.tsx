@@ -79,7 +79,7 @@ export default function CompletedPage() {
         <div className="mx-auto grid w-full max-w-6xl items-start gap-4">
           <div className="flex items-center gap-3">
              <CheckCircle2 className="h-8 w-8 text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)]"/>
-             <h1 className="text-3xl font-semibold">Módulos Concluídos</h1>
+             <h1 className="text-3xl font-semibold">Aulas Concluídas</h1>
           </div>
           <p className="text-muted-foreground">
             Você concluiu {filteredModules.length} de {modules.length} módulos. Continue assim!
@@ -99,7 +99,7 @@ export default function CompletedPage() {
           </div>
         ) : (
           <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card/20 py-24 text-center">
-            <h2 className="text-xl font-semibold text-foreground">Nenhum módulo concluído ainda</h2>
+            <h2 className="text-xl font-semibold text-foreground">Nenhuma aula concluída ainda</h2>
             <p className="mt-2 text-muted-foreground">
               Volte para a aba "Principal" e comece sua jornada de aprendizado.
             </p>
