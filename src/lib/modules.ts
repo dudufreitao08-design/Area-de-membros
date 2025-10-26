@@ -38,7 +38,7 @@ export const modules: Module[] = [
     id: 'module-5',
     title: 'Escala',
     icon: TrendingUp,
-    imageUrl: 'https://i.imgur.com/O8YrCC8.png',
+    imageUrl: 'https://i.imgur.com/SATpqQV.jpeg',
     width: 1080,
     height: 1920,
   },
