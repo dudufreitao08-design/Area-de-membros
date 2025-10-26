@@ -88,7 +88,7 @@ export function DashboardHeader() {
   };
 
   return (
-    <header className="relative z-30 flex h-[120px] w-full flex-col justify-end">
+    <header className="sticky top-0 z-30 flex h-[120px] w-full flex-col justify-end">
       {/* Background Gradient */}
       <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-[#0b132b] to-[#1c2541]"></div>
       {/* Subtle Glow */}
