@@ -3,14 +3,13 @@
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import {
-  User,
+  User as UserIcon,
   Info,
-  ChevronRight,
   LogOut,
   Settings as SettingsIcon,
 } from 'lucide-react';
 
-import { useAuth } from '@/firebase';
+import { useAuth, useUser } from '@/firebase';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,12 +18,9 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-const settingsItems = [
-  { icon: User, title: 'Perfil', description: 'Veja e edite seus dados' },
-];
-
 export default function SettingsPage() {
   const auth = useAuth();
+  const { user } = useUser();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -47,32 +43,34 @@ export default function SettingsPage() {
             </p>
           </div>
 
-          <Card className="border-none bg-[#16213e]/50 backdrop-blur-sm">
+          {/* Profile Card */}
+          <Card className="mb-8 border-none bg-[#16213e]/50 backdrop-blur-sm">
             <CardContent className="p-6">
-              <div className="space-y-4">
-                {settingsItems.map((item) => (
-                  <div
-                    key={item.title}
-                    className="flex cursor-pointer items-center rounded-lg p-4 transition-colors hover:bg-white/5"
-                  >
-                    <item.icon className="mr-4 h-6 w-6 text-accent" />
-                    <div className="flex-grow">
-                      <p className="font-semibold text-foreground">
-                        {item.title}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              <div className="flex items-center">
+                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
+                  <UserIcon className="h-6 w-6 text-accent" />
+                </div>
+                <h2 className="text-xl font-semibold text-foreground">Perfil</h2>
+              </div>
+              <div className="mt-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <p className="text-muted-foreground">Usuário Logado</p>
+                  <p className="font-medium text-foreground">{user?.email}</p>
+                </div>
+                <Separator className="bg-border/50" />
+                <div className="flex items-center justify-between">
+                  <p className="text-muted-foreground">Situação</p>
+                  <div className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-[#00ff85]"></div>
+                    <p className="font-medium text-[#00ff85]">Conectado</p>
                   </div>
-                ))}
+                </div>
               </div>
             </CardContent>
           </Card>
           
           {/* Information Block */}
-          <Card className="mt-8 border-none bg-[#16213e]/50 backdrop-blur-sm">
+          <Card className="border-none bg-[#16213e]/50 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center">
                 <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20">
