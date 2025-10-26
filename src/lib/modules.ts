@@ -22,7 +22,7 @@ export const modules: Module[] = [
     id: 'module-3',
     title: 'Implementação',
     icon: ClipboardCheck,
-    imageUrl: 'https://i.imgur.com/s7yDBcs.png',
+    imageUrl: 'https://i.imgur.com/FkV4O1s.jpeg',
     width: 1080,
     height: 1920,
   },
