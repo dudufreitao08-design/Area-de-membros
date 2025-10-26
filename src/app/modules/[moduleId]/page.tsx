@@ -18,7 +18,6 @@ import {
   Link as LinkIcon,
   PlayCircle,
   Target,
-  Clock,
   Info,
 } from 'lucide-react';
 
@@ -155,10 +154,6 @@ export default function ModulePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
-                  <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4" />
-                    <span>Tempo estimado: {content.estimatedTime}</span>
-                  </div>
                 </CardContent>
               </Card>
 
