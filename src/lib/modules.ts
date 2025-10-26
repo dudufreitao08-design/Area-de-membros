@@ -14,7 +14,7 @@ export const modules: Module[] = [
     id: 'module-2',
     title: 'Estratégias',
     icon: Target,
-    imageUrl: 'https://i.imgur.com/Q85eFe9.png',
+    imageUrl: 'https://i.imgur.com/LO36Ahh.jpeg',
     width: 1080,
     height: 1920,
   },
