@@ -6,7 +6,7 @@ export const modules: Module[] = [
     id: 'module-1',
     title: 'Introdução',
     icon: BookOpen,
-    imageUrl: 'https://i.imgur.com/mble3SD.png',
+    imageUrl: 'https://i.imgur.com/it732Id.jpeg',
     width: 1080,
     height: 1620,
   },
