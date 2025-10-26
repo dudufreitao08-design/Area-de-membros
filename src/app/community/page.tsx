@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Users, Wifi, MessageCircle } from 'lucide-react';
+import { Users, Wifi, MessageCircle, Hourglass } from 'lucide-react';
 import { DashboardHeader } from '@/components/dashboard/header';
 
 export default function CommunityPage() {
@@ -57,10 +57,27 @@ export default function CommunityPage() {
                   transform: translateY(0px) rotate(0deg);
                 }
               }
+              @keyframes pulse-glow {
+                0%, 100% {
+                  opacity: 0.8;
+                  transform: scale(1);
+                }
+                50% {
+                  opacity: 1;
+                  transform: scale(1.05);
+                }
+              }
             `}</style>
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center rounded-xl bg-black/20 p-8 backdrop-blur-sm md:p-16">
+            <Hourglass
+              className="mb-6 animate-[pulse-glow_4s_ease-in-out_infinite] text-primary"
+              size={48}
+              style={{
+                filter: 'drop-shadow(0 0 10px hsl(var(--primary) / 0.6))',
+              }}
+            />
             <h1 className="text-3xl font-bold text-white md:text-5xl">
               Estamos preparando algo
               <span className="text-primary"> incrível </span>
