@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 interface ModuleCardProps {
   module: Module;
   isCompleted: boolean;
-  onToggleComplete: () => void;
+  onToggleComplete?: () => void;
 }
 
 export function ModuleCard({
@@ -40,14 +40,16 @@ export function ModuleCard({
               </>
             )}
           </div>
-          <Button
-            variant={isCompleted ? 'secondary' : 'default'}
-            size="sm"
-            onClick={onToggleComplete}
-            className="font-semibold"
-          >
-            {isCompleted ? 'Desmarcar' : 'Concluir'}
-          </Button>
+          {onToggleComplete && (
+            <Button
+              variant={isCompleted ? 'secondary' : 'default'}
+              size="sm"
+              onClick={onToggleComplete}
+              className="font-semibold"
+            >
+              {isCompleted ? 'Desmarcar' : 'Concluir'}
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>

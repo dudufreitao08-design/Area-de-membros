@@ -4,14 +4,8 @@ import { DashboardHeader } from '@/components/dashboard/header';
 import { bonuses } from '@/lib/bonuses';
 import { ModuleCard } from '@/components/dashboard/module-card';
 import { Gift } from 'lucide-react';
-import { useCallback } from 'react';
 
 export default function BonusPage() {
-  // A função onToggleComplete é necessária pelo ModuleCard, mas não terá efeito aqui.
-  const handleToggleComplete = useCallback((moduleId: string) => {
-    console.log(`Toggle complete for module ${moduleId} - no action needed on bonus page.`);
-  }, []);
-
   return (
     <div className="flex min-h-screen w-full flex-col">
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
@@ -33,7 +27,6 @@ export default function BonusPage() {
               key={bonus.id}
               module={bonus}
               isCompleted={false} // Bônus não têm estado de "concluído"
-              onToggleComplete={() => handleToggleComplete(bonus.id)}
             />
           ))}
         </div>
