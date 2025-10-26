@@ -1,23 +1,22 @@
-import { FileText, Video } from 'lucide-react';
-import type { Bonus } from '@/lib/types';
+import { BookOpen, FileText, Video } from 'lucide-react';
+import type { Module } from '@/lib/types';
 
-export const bonuses: Bonus[] = [
+// Agora `bonuses` usa a mesma estrutura de `Module` para consistência visual.
+export const bonuses: Module[] = [
   {
     id: 'bonus-1',
     title: 'E-book: A Ciência do Sono',
-    description:
-      'Um guia completo com as mais recentes descobertas científicas sobre o sono e como aplicá-las para melhorar sua qualidade de vida.',
     icon: FileText,
-    cta: 'Baixar PDF',
-    href: '#',
+    imageUrl: 'https://i.imgur.com/8JW8h2v.png',
+    width: 1080,
+    height: 1620,
   },
   {
     id: 'bonus-2',
     title: 'Vídeo: Meditação Guiada',
-    description:
-      'Uma sessão de meditação guiada de 15 minutos, projetada especificamente para relaxar a mente e preparar o corpo para uma noite de sono profundo.',
     icon: Video,
-    cta: 'Assistir Agora',
-    href: '#',
+    imageUrl: 'https://i.imgur.com/1Z9ZJ4n.png',
+    width: 1080,
+    height: 1920,
   },
 ];
