@@ -11,6 +11,7 @@ import {
   Settings,
   Menu,
   CheckSquare,
+  Gift,
 } from 'lucide-react';
 
 import { useAuth, useUser } from '@/firebase';
@@ -33,6 +34,7 @@ import {
 const navItems = [
   { href: '/', label: 'Principal', icon: Moon },
   { href: '/completed', label: 'Concluidos', icon: CheckSquare },
+  { href: '/bonus', label: 'Bônus', icon: Gift },
   { href: '/community', label: 'Comunidade', icon: MessageSquare },
   { href: '/settings', label: 'Configurações', icon: Settings },
 ];
