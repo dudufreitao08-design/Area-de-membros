@@ -28,7 +28,7 @@ export const modules: Module[] = [
   },
   {
     id: 'module-4',
-    title: 'Testes',
+    title: 'Preparando para Dormir',
     icon: FlaskConical,
     imageUrl: 'https://i.imgur.com/VCBs7FJ.jpeg',
     width: 1080,

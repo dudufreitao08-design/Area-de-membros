@@ -42,57 +42,42 @@ const moduleData: { [key: string]: any } = {
         duration: '10–20 min',
       },
     ],
-    resources: [
-      {
-        type: 'PDF',
-        title: 'Checklist — Higiene do Sono (passo a passo)',
-        icon: FileText,
-      },
-      {
-        type: 'Link',
-        title: 'Artigo complementar — Entendendo o sono',
-        icon: LinkIcon,
-      },
-      {
-        type: 'Template',
-        title: 'Diário de sono (modelo para impressão)',
-        icon: FileText,
-      },
-    ],
     instructorNote:
       'Assista aos vídeos na ordem e realize anotações rápidas ao final de cada vídeo. Experimente as práticas por pelo menos 7 noites e registre melhorias no diário de sono. Se algo não funcionar, ajuste pequenos detalhes (luz, temperatura, horário).',
   },
   'module-3': {
+    version: '1.0.0',
+    createdAt: '2025-10-26',
     title: 'TÉCNICAS DE RELAXAMENTO',
     subtitle: 'Práticas guiadas para reduzir ansiedade e preparar o corpo para o sono',
     shortDescription: 'Aprenda técnicas simples e eficazes — respiração, relaxamento muscular e visualização — para acalmar a mente e facilitar o adormecer. Conteúdo prático com áudios e vídeos para seguir passo a passo.',
-    learningObjectives: [
-      'Executar 3 técnicas práticas de relaxamento: respiração guiada, relaxamento muscular progressivo e visualização.',
-      'Reduzir sinais físicos de tensão em 10–15 minutos por meio de práticas guiadas.',
-      'Criar uma rotina noturna de relaxamento adaptável ao seu horário.',
-    ],
     videos: [
       { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', duration: '6–10 min', youtubeUrl: '{{YOUTUBE_URL_1}}' },
       { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', duration: '10–15 min', youtubeUrl: '{{YOUTUBE_URL_2}}' },
       { label: 'Vídeo 3 — Visualização guiada para sono profundo', duration: '8–15 min', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
-    resources: [
-      { type: 'Áudio MP3', title: 'Respiração guiada — 6 minutos', icon: Speaker, url: '{{AUDIO_RESPIRACAO_URL}}' },
-      { type: 'Áudio MP3', title: 'Relaxamento progressivo — 12 minutos', icon: Speaker, url: '{{AUDIO_RELAXAMENTO_URL}}' },
-      { type: 'PDF', title: 'Guia prático — Rotina de relaxamento', icon: FileText, url: '{{PDF_GUIA_URL}}' },
-      { type: 'Template', title: 'Modelo de diário de prática', icon: LinkIcon, url: '{{TEMPLATE_DIARIO_URL}}' },
-    ],
     estimatedTime: '30–50 minutos',
-    instructorNote: 'Assista aos vídeos na ordem e pratique cada técnica ao menos uma vez durante a sessão. Use fones de ouvido para os áudios. Comece em um ambiente tranquilo e segure um diário por 1 minuto após a prática para anotar sensações. Repita diariamente por 7 dias para avaliar diferenças.',
     cta: {
       primary: { label: 'Iniciar prática', action: 'startGuidedPractice' },
       secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
     },
-    practiceChecklist: [
-      { id: 'tech1', label: 'Técnica de respiração guiada', completed: false },
-      { id: 'tech2', label: 'Relaxamento muscular progressivo', completed: false },
-      { id: 'tech3', label: 'Visualização para sono profundo', completed: false },
-    ]
+  },
+   'module-4': {
+    version: '1.0.0',
+    createdAt: new Date().toISOString(),
+    title: 'PREPARANDO PARA DORMIR',
+    subtitle: 'Transforme sua noite em um ritual de relaxamento profundo.',
+    shortDescription: 'Descubra técnicas práticas para preparar corpo e mente para um sono restaurador. Este módulo guia você passo a passo até o momento ideal de descanso, criando uma rotina noturna eficaz.',
+    videos: [
+      { label: 'Vídeo 1: Criando o ambiente ideal', duration: '8-12 min', youtubeUrl: '{{YOUTUBE_URL_1}}' },
+      { label: 'Vídeo 2: Desacelerando a mente', duration: '10-15 min', youtubeUrl: '{{YOUTUBE_URL_2}}' },
+      { label: 'Vídeo 3: O ritual do sono', duration: '7-10 min', youtubeUrl: '{{YOUTUBE_URL_3}}' },
+    ],
+    instructorNote: 'Este é o módulo que conecta sua rotina diurna com o descanso noturno. Aplique as técnicas em ordem e observe como seu corpo responde nos primeiros dias.',
+    cta: {
+      primary: { label: 'Começar rotina', action: 'startRoutine' },
+      secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
+    },
   }
 };
 
@@ -147,10 +132,10 @@ export default function ModulePage() {
     );
   }
 
-  // Specific layout for Module 3
-  if (moduleId === 'module-3') {
-    const progressValue = content.practiceChecklist.filter((item: any) => item.completed).length / content.practiceChecklist.length * 100;
-    return (
+  // Common Layout for Modules with specific content
+  const progressValue = 0; // Placeholder for progress logic
+
+  return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
         <DashboardHeader />
@@ -196,69 +181,31 @@ export default function ModulePage() {
                   </CardContent>
                 </Card>
 
-                <div className="space-y-3">
-                  <Button size="lg" className="w-full">
-                    {content.cta.primary.label}
-                  </Button>
-                  <Button size="lg" variant="secondary" className="w-full">
-                    {content.cta.secondary.label}
-                  </Button>
-                </div>
+                {content.instructorNote && (
+                   <Card className="bg-card/70">
+                    <CardHeader>
+                      <CardTitle>Nota do Instrutor</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{content.instructorNote}</p>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {content.cta && (
+                    <div className="space-y-3">
+                        <Button size="lg" className="w-full">
+                            {content.cta.primary.label}
+                        </Button>
+                        <Button size="lg" variant="secondary" className="w-full">
+                            {content.cta.secondary.label}
+                        </Button>
+                    </div>
+                )}
               </div>
             </div>
           </div>
         </main>
       </div>
     );
-  }
-
-  return (
-    <div className="flex min-h-screen w-full flex-col">
-      <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
-      <DashboardHeader />
-      <main className="flex-1 p-4 pb-28 md:p-6 md:pb-32 lg:p-8">
-        <div className="mx-auto w-full max-w-7xl">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground">
-              {content.title}
-            </h1>
-            <p className="mt-1 text-lg text-muted-foreground">
-              {content.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {/* Left Column (Videos) */}
-            <div className="space-y-6 lg:col-span-2">
-              {content.videos.map((video: any, index: number) => (
-                <VideoCard key={index} label={video.label} duration={video.duration} />
-              ))}
-            </div>
-
-            {/* Right Column (Details) */}
-            <div className="space-y-6">
-              <Card className="bg-card/70">
-                <CardHeader>
-                  <CardTitle>Sobre este módulo</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
-                </CardContent>
-              </Card>
-
-              <div className="space-y-3">
-                <Button size="lg" className="w-full">
-                  Continuar
-                </Button>
-                <Button size="lg" variant="secondary" className="w-full">
-                  Marcar como concluído
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
 }
