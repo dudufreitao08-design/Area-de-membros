@@ -33,11 +33,12 @@ export function ModuleCard({
     <CardWrapper>
       <Card
         className={cn(
-          'group relative flex aspect-[9/16] flex-col overflow-hidden border-2 bg-card/50 shadow-lg transition-all',
+          'group relative flex aspect-[9/16] flex-col overflow-hidden bg-card/50 transition-all duration-300',
           isLocked
-            ? 'border-transparent'
-            : 'border-transparent hover:border-primary/50 hover:shadow-primary/20'
+            ? 'border-2 border-transparent'
+            : 'border-2 border-border/20 shadow-lg hover:border-primary/50 hover:shadow-primary/20'
         )}
+        aria-label={isLocked ? 'Módulo bloqueado' : undefined}
       >
         <Image
           src={module.imageUrl}
@@ -45,7 +46,7 @@ export function ModuleCard({
           fill
           className={cn(
             'absolute inset-0 h-full w-full object-cover transition-transform duration-300',
-            isLocked ? 'opacity-100' : ''
+            !isLocked && 'group-hover:scale-105'
           )}
         />
         {/* Gradients */}
@@ -61,7 +62,7 @@ export function ModuleCard({
         
         {/* Locked State Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 p-4 text-center">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 p-4 text-center backdrop-blur-sm">
             <Lock className="h-10 w-10 text-primary" aria-label="Módulo bloqueado"/>
              <Button disabled className="mt-4 pointer-events-none">
               <Lock className="mr-2 h-4 w-4" />
