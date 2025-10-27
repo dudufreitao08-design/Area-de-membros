@@ -195,22 +195,6 @@ export default function ModulePage() {
                     <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
                   </CardContent>
                 </Card>
-                
-                <Card className="bg-card/70">
-                  <CardHeader>
-                    <CardTitle>Checklist da Prática</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                     {content.practiceChecklist.map((item: any) => (
-                        <div key={item.id} className="flex items-center gap-3 rounded-md bg-muted/50 p-3">
-                            <div className={`h-5 w-5 rounded-full flex items-center justify-center ${item.completed ? 'bg-primary' : 'bg-border'}`}>
-                                {item.completed && <Check className="h-4 w-4 text-primary-foreground" />}
-                            </div>
-                            <label className="text-sm text-foreground cursor-pointer flex-1">{item.label}</label>
-                        </div>
-                     ))}
-                  </CardContent>
-                </Card>
 
                 <Card className="bg-card/70">
                   <CardHeader>
