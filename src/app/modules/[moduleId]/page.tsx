@@ -42,8 +42,6 @@ const moduleData: { [key: string]: any } = {
         duration: '10–20 min',
       },
     ],
-    instructorNote:
-      'Assista aos vídeos na ordem e realize anotações rápidas ao final de cada vídeo. Experimente as práticas por pelo menos 7 noites e registre melhorias no diário de sono. Se algo não funcionar, ajuste pequenos detalhes (luz, temperatura, horário).',
   },
   'module-3': {
     version: '1.0.0',
@@ -180,17 +178,6 @@ export default function ModulePage() {
                     <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
                   </CardContent>
                 </Card>
-
-                {content.instructorNote && (
-                   <Card className="bg-card/70">
-                    <CardHeader>
-                      <CardTitle>Nota do Instrutor</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{content.instructorNote}</p>
-                    </CardContent>
-                  </Card>
-                )}
 
                 {content.cta && (
                     <div className="space-y-3">
