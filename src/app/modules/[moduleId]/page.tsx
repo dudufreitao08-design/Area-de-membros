@@ -12,11 +12,38 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker } from 'lucide-react';
+import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen } from 'lucide-react';
 import Image from 'next/image';
 
 const moduleData: { [key: string]: any } = {
+  'module-1': {
+    title: 'O CÓDIGO DO SONO',
+    subtitle: 'O guia essencial para reconquistar noites profundas e revigorantes.',
+    shortDescription: 'Baixe e leia o eBook que reúne o método, as evidências e passos práticos para melhorar sua qualidade de sono. Conteúdo direto, aplicável e projetado para resultados rápidos.',
+    coverUrl: 'https://i.imgur.com/it732Id.jpeg',
+    ebookFileUrl: '{{EBOOK_FILE_URL}}',
+    learningObjectives: [
+      'Como funcionam os ciclos do sono e por que cada estágio importa.',
+      'Rotina noturna prática (checklist) que prepara corpo e mente em 20–30 minutos.',
+      'Quais hábitos eliminar ou ajustar para reduzir despertares noturnos.',
+    ],
+    instructorNote: 'Comece baixando o eBook e aplique o checklist das primeiras 7 noites. Use o diário anexo para registrar mudanças — pequenos ajustes trazem grandes resultados.',
+    resources: [
+      { label: 'Checklist imprimível (PDF)', url: '{{PDF_CHECKLIST_URL}}' },
+      { label: 'Diário de sono (template)', url: '{{TEMPLATE_DIARIO_URL}}' },
+      { label: 'Leitura complementar', url: '{{ARTIGO_URL}}' },
+    ],
+    cta: {
+      primary: { label: 'Ler agora', action: 'openEbookViewer' },
+      secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
+    },
+    ebookInfo: {
+      author: 'Seu Nome',
+      format: 'PDF',
+      readingTime: '60-90 minutos',
+      version: 'v1.0.0',
+    }
+  },
   'module-2': {
     title: 'ENTENDENDO O SONO',
     subtitle: 'Fundamentos, ciclos e práticas para melhorar a qualidade do seu descanso.',
@@ -111,6 +138,90 @@ export default function ModulePage() {
     );
   }
 
+  // Render Module 1 (eBook)
+  if (moduleId === 'module-1') {
+    const { title, subtitle, shortDescription, coverUrl, ebookInfo, learningObjectives, instructorNote, resources, cta } = content;
+    return (
+      <div className="flex min-h-screen w-full flex-col">
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
+        <DashboardHeader />
+        <main className="flex-1 p-4 pb-28 md:p-6 md:pb-32 lg:p-8">
+          <div className="mx-auto w-full max-w-7xl">
+            {/* Header */}
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground">{title}</h1>
+              <p className="mt-1 text-lg text-muted-foreground">{subtitle}</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
+              {/* Left Column (eBook Download) */}
+              <div className="lg:col-span-2">
+                <Card className="overflow-hidden bg-card/70 shadow-lg">
+                  <div className="relative aspect-[3/4]">
+                    <Image src={coverUrl} alt={`Capa do eBook: ${title}`} fill className="object-cover" />
+                    <div className="absolute top-2 right-2 rounded-full bg-primary/80 px-3 py-1 text-xs font-bold text-primary-foreground backdrop-blur-sm">
+                      Ebook oficial
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <Button size="lg" className="w-full">
+                      <Download className="mr-2 h-5 w-5" />
+                      Baixar agora
+                    </Button>
+                    <p className="mt-2 text-center text-xs text-muted-foreground">PDF — 12 MB</p>
+                    <Button variant="link" className="mt-1 w-full text-center">
+                      <Eye className="mr-2 h-4 w-4" />
+                      Ver amostra
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Right Column (Details) */}
+              <div className="space-y-6 lg:col-span-3">
+                 <Card className="bg-card/70">
+                  <CardHeader>
+                    <CardTitle>Sobre o eBook</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{shortDescription}</p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-card/70">
+                    <CardHeader>
+                        <CardTitle>O que você vai aprender</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        {learningObjectives.map((objective: string, index: number) => (
+                        <div key={index} className="flex items-start gap-3">
+                            <Check className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                            <p className="text-sm text-muted-foreground">{objective}</p>
+                        </div>
+                        ))}
+                    </CardContent>
+                </Card>
+                
+                <div className="space-y-3">
+                    <Button size="lg" className="w-full" disabled>
+                        <BookOpen className="mr-2 h-5 w-5" />
+                        {cta.primary.label}
+                    </Button>
+                    <Button size="lg" variant="secondary" className="w-full">
+                        <Check className="mr-2 h-5 w-5" />
+                        {cta.secondary.label}
+                    </Button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+
   // Render generic page if no specific content is available
   if (!content) {
     return (
@@ -129,9 +240,7 @@ export default function ModulePage() {
     );
   }
 
-  // Common Layout for Modules with specific content
-  const progressValue = 0; // Placeholder for progress logic
-
+  // Common Layout for Modules with specific content (2, 3, 4)
   return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>

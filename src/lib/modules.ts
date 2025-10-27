@@ -4,7 +4,7 @@ import type { Module } from '@/lib/types';
 export const modules: Module[] = [
   {
     id: 'module-1',
-    title: 'Introdução',
+    title: 'O CÓDIGO DO SONO',
     icon: BookOpen,
     imageUrl: 'https://i.imgur.com/it732Id.jpeg',
     width: 1080,
