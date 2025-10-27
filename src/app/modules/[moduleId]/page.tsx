@@ -195,26 +195,6 @@ export default function ModulePage() {
                     <p className="text-sm text-muted-foreground">{content.shortDescription}</p>
                   </CardContent>
                 </Card>
-
-                <Card className="bg-card/70">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Download className="h-5 w-5 text-primary" />
-                      Recursos
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {content.resources.map((res: any, i: number) => {
-                      const Icon = res.icon;
-                      return (
-                        <Button key={i} variant="outline" className="w-full justify-start">
-                          <Icon className="mr-2 h-4 w-4" />
-                          {res.title}
-                        </Button>
-                      );
-                    })}
-                  </CardContent>
-                </Card>
                 
                 <Card className="bg-card/70">
                   <CardHeader>
