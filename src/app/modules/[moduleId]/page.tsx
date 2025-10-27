@@ -198,20 +198,6 @@ export default function ModulePage() {
 
                 <Card className="bg-card/70">
                   <CardHeader>
-                    <CardTitle>Objetivos de Aprendizagem</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {content.learningObjectives.map((obj: string, i: number) => (
-                       <div key={i} className="flex items-start gap-3">
-                         <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                         <p className="text-sm text-muted-foreground">{obj}</p>
-                       </div>
-                    ))}
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-card/70">
-                  <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Download className="h-5 w-5 text-primary" />
                       Recursos
