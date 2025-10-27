@@ -26,7 +26,8 @@ export default function BonusPage() {
             <ModuleCard
               key={bonus.id}
               module={bonus}
-              isCompleted={false} // Bônus não têm estado de "concluído"
+              isCompleted={false}
+              isLocked={false}
             />
           ))}
         </div>

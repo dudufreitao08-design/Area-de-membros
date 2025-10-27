@@ -10,14 +10,14 @@ import { cn } from '@/lib/utils';
 interface ModuleCardProps {
   module: Module;
   isCompleted: boolean;
-  isLocked: boolean;
+  isLocked?: boolean;
   onToggleComplete?: () => void;
 }
 
 export function ModuleCard({
   module,
   isCompleted,
-  isLocked,
+  isLocked = false, // Default to false if not provided
   onToggleComplete,
 }: ModuleCardProps) {
   const CardWrapper = ({ children }: { children: React.ReactNode }) =>
@@ -74,7 +74,7 @@ export function ModuleCard({
         {/* Unlocked State Content */}
         {!isLocked && (
           <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6">
-
+            <h3 className="text-xl font-bold text-white drop-shadow-md">{module.title}</h3>
             <div className="mt-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {isCompleted && (
