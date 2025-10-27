@@ -63,10 +63,7 @@ export function ModuleCard({
         {isLocked && (
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/70 p-4 text-center backdrop-blur-sm">
             <Lock className="h-10 w-10 text-primary" aria-label="Módulo bloqueado"/>
-            <h3 className="mt-4 text-xl font-bold text-white">
-              {module.title}
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-muted-foreground">
               Conclua o módulo anterior para liberar este conteúdo.
             </p>
              <Button disabled className="mt-4 pointer-events-none">
