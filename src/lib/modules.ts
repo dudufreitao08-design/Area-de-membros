@@ -36,7 +36,7 @@ export const modules: Module[] = [
   },
   {
     id: 'module-5',
-    title: 'Escala',
+    title: 'Desafio de 7 Dias',
     icon: TrendingUp,
     imageUrl: 'https://i.imgur.com/SATpqQV.jpeg',
     width: 1080,
