@@ -7,4 +7,5 @@ export interface Module {
   imageUrl: string;
   width: number;
   height: number;
+  unlocksAt?: number; // Number of modules to complete before this one is unlocked
 }

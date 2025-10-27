@@ -41,5 +41,6 @@ export const modules: Module[] = [
     imageUrl: 'https://i.imgur.com/SATpqQV.jpeg',
     width: 1080,
     height: 1920,
+    unlocksAt: 4, // This module unlocks after 4 modules are completed
   },
 ];

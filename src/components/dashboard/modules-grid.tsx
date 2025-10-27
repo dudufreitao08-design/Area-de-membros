@@ -86,22 +86,28 @@ export function ModulesGrid() {
     return (
       <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-4 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: 5 }).map((_, index) => (
-          <Skeleton key={index} className="h-48 rounded-lg" />
+          <Skeleton key={index} className="aspect-[9/16] rounded-lg" />
         ))}
       </div>
     );
   }
 
+  const completedCount = completedModules.length;
+
   return (
     <div className="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-4 lg:grid-cols-3 xl:grid-cols-4">
-      {modules.map((module) => (
-        <ModuleCard
-          key={module.id}
-          module={module}
-          isCompleted={completedModules.includes(module.id)}
-          onToggleComplete={() => handleToggleComplete(module.id)}
-        />
-      ))}
+      {modules.map((module) => {
+        const isLocked = (module.unlocksAt ?? 0) > completedCount;
+        return (
+          <ModuleCard
+            key={module.id}
+            module={module}
+            isCompleted={completedModules.includes(module.id)}
+            isLocked={isLocked}
+            onToggleComplete={() => handleToggleComplete(module.id)}
+          />
+        );
+      })}
     </div>
   );
 }
