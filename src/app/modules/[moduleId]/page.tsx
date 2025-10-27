@@ -196,18 +196,6 @@ export default function ModulePage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/70">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Info className="h-5 w-5 text-accent" />
-                      Nota do Instrutor
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{content.instructorNote}</p>
-                  </CardContent>
-                </Card>
-
                 <div className="space-y-3">
                   <Button size="lg" className="w-full">
                     {content.cta.primary.label}
@@ -276,18 +264,6 @@ export default function ModulePage() {
                       </Button>
                     );
                   })}
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/70">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Info className="h-5 w-5 text-accent" />
-                    Nota do Instrutor
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{content.instructorNote}</p>
                 </CardContent>
               </Card>
 
