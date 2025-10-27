@@ -45,7 +45,7 @@ export function ModuleCard({
           fill
           className={cn(
             'absolute inset-0 h-full w-full object-cover transition-transform duration-300',
-            isLocked ? 'opacity-40' : ''
+            isLocked ? 'opacity-100' : ''
           )}
         />
         {/* Gradients */}
@@ -61,7 +61,7 @@ export function ModuleCard({
         
         {/* Locked State Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/50 p-4 text-center backdrop-blur-sm">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/30 p-4 text-center">
             <Lock className="h-10 w-10 text-primary" aria-label="Módulo bloqueado"/>
              <Button disabled className="mt-4 pointer-events-none">
               <Lock className="mr-2 h-4 w-4" />
