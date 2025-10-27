@@ -69,7 +69,10 @@ export function ModuleCard({
               className="h-10 w-10 text-primary"
               aria-label="Módulo bloqueado"
             />
-            <Button disabled className="mt-4 pointer-events-none">
+            <Button
+              className="pointer-events-none mt-4 border-primary/50 bg-primary/20 text-primary-foreground/90"
+              disabled
+            >
               Clique para desbloquear
             </Button>
           </div>
