@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardCheck, FlaskConical, Target, TrendingUp } from 'lucide-react';
+import { BookOpen, ClipboardCheck, FlaskConical, Target, TrendingUp, Wind } from 'lucide-react';
 import type { Module } from '@/lib/types';
 
 export const modules: Module[] = [
@@ -20,8 +20,8 @@ export const modules: Module[] = [
   },
   {
     id: 'module-3',
-    title: 'Implementação',
-    icon: ClipboardCheck,
+    title: 'Técnicas de Relaxamento',
+    icon: Wind,
     imageUrl: 'https://i.imgur.com/FkV4O1s.jpeg',
     width: 1080,
     height: 1920,
