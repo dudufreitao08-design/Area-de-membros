@@ -57,21 +57,20 @@ export function ModuleCard({
           className={cn(
             'pointer-events-none absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent',
             isLocked
-              ? 'bg-black/60'
+              ? 'bg-black/40'
               : 'transition-opacity group-hover:from-black/90'
           )}
         ></div>
 
         {/* Locked State Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/60 p-4 text-center">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 p-4 text-center">
             <Lock
               className="h-10 w-10 text-primary"
               aria-label="Módulo bloqueado"
             />
             <Button disabled className="mt-4 pointer-events-none">
-              <Lock className="mr-2 h-4 w-4" />
-              Bloqueado
+              Clique para desbloquear
             </Button>
           </div>
         )}
