@@ -62,7 +62,7 @@ export function ModuleCard({
         
         {/* Locked State Overlay */}
         {isLocked && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/80 p-4 text-center">
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/50 p-4 text-center">
             <Lock className="h-10 w-10 text-primary" aria-label="Módulo bloqueado"/>
              <Button disabled className="mt-4 pointer-events-none">
               <Lock className="mr-2 h-4 w-4" />
@@ -74,6 +74,9 @@ export function ModuleCard({
         {/* Unlocked State Content */}
         {!isLocked && (
           <CardContent className="relative z-10 flex flex-1 flex-col justify-end p-6">
+            <h3 className="text-xl font-bold text-white drop-shadow-md">
+              {module.title}
+            </h3>
             
             <div className="mt-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
