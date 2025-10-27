@@ -71,7 +71,6 @@ const moduleData: { [key: string]: any } = {
       { label: 'Vídeo 2: Desacelerando a mente', duration: '10-15 min', youtubeUrl: '{{YOUTUBE_URL_2}}' },
       { label: 'Vídeo 3: O ritual do sono', duration: '7-10 min', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
-    instructorNote: 'Este é o módulo que conecta sua rotina diurna com o descanso noturno. Aplique as técnicas em ordem e observe como seu corpo responde nos primeiros dias.',
     cta: {
       primary: { label: 'Começar rotina', action: 'startRoutine' },
       secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
@@ -149,13 +148,6 @@ export default function ModulePage() {
                         <p className="mt-1 text-lg text-muted-foreground">
                         {content.subtitle}
                         </p>
-                    </div>
-                    <div className="mt-4 md:mt-0 md:w-1/4">
-                        <div className="flex items-center gap-2 text-sm">
-                            <span className='text-muted-foreground'>Progresso</span>
-                            <span className='font-semibold text-foreground'>{Math.round(progressValue)}%</span>
-                        </div>
-                        <Progress value={progressValue} className="mt-1 h-2" indicatorClassName="bg-[hsl(var(--progress))]"/>
                     </div>
               </div>
             </div>
