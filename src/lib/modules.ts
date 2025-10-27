@@ -6,7 +6,7 @@ export const modules: Module[] = [
     id: 'module-1',
     title: 'O CÓDIGO DO SONO',
     icon: BookOpen,
-    imageUrl: 'https://i.imgur.com/it732Id.jpeg',
+    imageUrl: 'https://i.imgur.com/xtkaZCa.jpeg',
     width: 1080,
     height: 1620,
   },

@@ -20,7 +20,7 @@ const moduleData: { [key: string]: any } = {
     title: 'O CÓDIGO DO SONO',
     subtitle: 'O guia essencial para reconquistar noites profundas e revigorantes.',
     shortDescription: 'Baixe e leia o eBook que reúne o método, as evidências e passos práticos para melhorar sua qualidade de sono. Conteúdo direto, aplicável e projetado para resultados rápidos.',
-    coverUrl: 'https://i.imgur.com/it732Id.jpeg',
+    coverUrl: 'https://i.imgur.com/xtkaZCa.jpeg',
     ebookFileUrl: '{{EBOOK_FILE_URL}}',
     learningObjectives: [
       'Como funcionam os ciclos do sono e por que cada estágio importa.',
