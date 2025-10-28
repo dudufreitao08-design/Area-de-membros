@@ -169,10 +169,6 @@ export default function ModulePage() {
                       Baixar agora
                     </Button>
                     <p className="mt-2 text-center text-xs text-muted-foreground">PDF — 12 MB</p>
-                    <Button variant="link" className="mt-1 w-full text-center">
-                      <Eye className="mr-2 h-4 w-4" />
-                      Ver amostra
-                    </Button>
                   </CardContent>
                 </Card>
               </div>
