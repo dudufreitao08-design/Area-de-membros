@@ -123,7 +123,7 @@ const moduleData: { [key: string]: any } = {
     ],
     cta: {
         locked: 'Desbloquear Agora',
-        unlocked: 'Baixar PDF do Desafio'
+        unlocked: 'Baixar'
     }
   }
 };
@@ -428,5 +428,7 @@ export default function ModulePage() {
       </div>
     );
 }
+
+    
 
     
