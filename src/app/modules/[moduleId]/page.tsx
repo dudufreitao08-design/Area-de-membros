@@ -246,8 +246,8 @@ export default function ModulePage() {
             </div>
              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                 <div className="flex flex-col justify-center">
-                  <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                    <Image src={content.coverUrl} alt={`Capa do Desafio: ${content.title}`} fill className="object-cover" />
+                  <div className="relative w-full overflow-hidden rounded-lg">
+                    <Image src={content.coverUrl} alt={`Capa do Desafio: ${content.title}`} width={1080} height={1080} className="object-contain" />
                   </div>
                   <Button size="lg" className="mt-6 w-full">
                     <Download className="mr-2" />
@@ -428,3 +428,5 @@ export default function ModulePage() {
       </div>
     );
 }
+
+    
