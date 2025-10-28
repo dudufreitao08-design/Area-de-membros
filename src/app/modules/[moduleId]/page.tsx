@@ -108,17 +108,18 @@ const moduleData: { [key: string]: any } = {
   },
   'module-5': {
     title: 'DESAFIO DE 7 DIAS',
-    subtitle: 'Transforme suas noites em 7 dias — prática guiada, simples e comprovada.',
-    shortDescription: 'Um programa diário passo a passo que leva você do cansaço à noite restauradora em apenas 7 dias. Conteúdo exclusivo, práticas fáceis e um PDF completo com exercícios diários.',
+    subtitle: 'Um programa prático de 7 dias para reduzir despertares, acelerar o adormecer e recuperar sono profundo.',
+    shortDescription: 'Programa guiado e comprovado — 7 passos diários, PDF completo com exercícios, áudios guiados e checklist diário. Resultados visíveis em uma semana. Acesso pago e imediato após a confirmação da compra.',
     coverUrl: 'https://i.imgur.com/SATpqQV.jpeg',
     conquests: [
-        'Reorganizar sua rotina para adormecer mais rápido.',
-        'Acordar com mais energia após 7 noites monitoradas.',
-        'Reduzir despertares noturnos com técnicas diárias.'
+        'Dormir mais rápido e com menos despertares.',
+        'Acordar com mais energia após 7 noites.',
+        'Rotina prática e aplicável mesmo em dias corridos.',
+        'Ferramentas fáceis: PDF imprimível e áudios para seguir passo a passo.'
     ],
     benefits: [
-        { icon: Zap, title: 'Benefícios Rápidos', description: 'Melhora no tempo de sono e menos ansiedade.' },
-        { icon: Award, title: 'Resultados em 7 Dias', description: 'Adormeça mais rápido e sinta-se recuperado.' }
+        { icon: Zap, title: 'Benefícios Imediatos', description: 'Redução do tempo para adormecer e menor ansiedade noturna.' },
+        { icon: Award, title: 'Resultados em 7 Dias', description: 'Sono mais contínuo e sensação de recuperação ao acordar.' }
     ],
     cta: {
         locked: 'Desbloquear Agora',
@@ -148,7 +149,6 @@ const VideoCard = ({ label, duration }: { label: string; duration: string }) => 
 export default function ModulePage() {
   const params = useParams();
   const moduleId = params.moduleId as string;
-  const [progress, setProgress] = useState(0);
 
   const moduleInfo = modules.find((m) => m.id === moduleId);
   const content = moduleData[moduleId];
@@ -287,7 +287,6 @@ export default function ModulePage() {
                         ))}
                     </CardContent>
                 </Card>
-
               </div>
             </div>
           </div>
