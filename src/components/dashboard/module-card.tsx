@@ -21,9 +21,8 @@ export function ModuleCard({
   onToggleComplete,
 }: ModuleCardProps) {
   const CardWrapper = ({ children }: { children: React.ReactNode }) =>
-    isLocked ? (
-      <div className="relative block">{children}</div>
-    ) : (
+    // Always wrap with a link, but the content inside will show the locked state
+    (
       <Link href={`/modules/${module.id}`} className="block">
         {children}
       </Link>
@@ -71,7 +70,6 @@ export function ModuleCard({
             />
             <Button
               className="pointer-events-none mt-4 bg-primary text-primary-foreground hover:bg-primary/90"
-              disabled
             >
               Clique para desbloquear
             </Button>
