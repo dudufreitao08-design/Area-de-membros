@@ -12,8 +12,11 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen } from 'lucide-react';
+import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare } from 'lucide-react';
 import Image from 'next/image';
+import { Progress } from '@/components/ui/progress';
+import { useState } from 'react';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const moduleData: { [key: string]: any } = {
   'module-1': {
@@ -70,7 +73,7 @@ const moduleData: { [key: string]: any } = {
       },
     ],
   },
-  'module-3': {
+    'module-3': {
     version: '1.0.0',
     createdAt: '2025-10-26',
     title: 'TÉCNICAS DE RELAXAMENTO',
@@ -126,6 +129,7 @@ const VideoCard = ({ label, duration }: { label: string; duration: string }) => 
 export default function ModulePage() {
   const params = useParams();
   const moduleId = params.moduleId as string;
+  const [progress, setProgress] = useState(0);
 
   const moduleInfo = modules.find((m) => m.id === moduleId);
   const content = moduleData[moduleId];
@@ -197,17 +201,6 @@ export default function ModulePage() {
                         ))}
                     </CardContent>
                 </Card>
-                
-                <div className="space-y-3">
-                    <Button size="lg" className="w-full" disabled>
-                        <BookOpen className="mr-2 h-5 w-5" />
-                        {cta.primary.label}
-                    </Button>
-                    <Button size="lg" variant="secondary" className="w-full">
-                        <Check className="mr-2 h-5 w-5" />
-                        {cta.secondary.label}
-                    </Button>
-                </div>
 
               </div>
             </div>
