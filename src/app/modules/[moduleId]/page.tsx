@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare } from 'lucide-react';
+import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare, Lock, Star, Zap, Award } from 'lucide-react';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { useState } from 'react';
@@ -105,6 +105,25 @@ const moduleData: { [key: string]: any } = {
       primary: { label: 'Começar rotina', action: 'startRoutine' },
       secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
     },
+  },
+  'module-5': {
+    title: 'DESAFIO DE 7 DIAS',
+    subtitle: 'Transforme suas noites em 7 dias — prática guiada, simples e comprovada.',
+    shortDescription: 'Um programa diário passo a passo que leva você do cansaço à noite restauradora em apenas 7 dias. Conteúdo exclusivo, práticas fáceis e um PDF completo com exercícios diários.',
+    coverUrl: 'https://i.imgur.com/SATpqQV.jpeg',
+    conquests: [
+        'Reorganizar sua rotina para adormecer mais rápido.',
+        'Acordar com mais energia após 7 noites monitoradas.',
+        'Reduzir despertares noturnos com técnicas diárias.'
+    ],
+    benefits: [
+        { icon: Zap, title: 'Benefícios Rápidos', description: 'Melhora no tempo de sono e menos ansiedade.' },
+        { icon: Award, title: 'Resultados em 7 Dias', description: 'Adormeça mais rápido e sinta-se recuperado.' }
+    ],
+    cta: {
+        locked: 'Desbloquear Agora',
+        unlocked: 'Baixar PDF do Desafio'
+    }
   }
 };
 
@@ -142,9 +161,76 @@ export default function ModulePage() {
     );
   }
 
+  // Render Module 5 (Locked Challenge)
+  if (moduleId === 'module-5') {
+    return (
+       <div className="flex min-h-screen w-full flex-col">
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
+        <DashboardHeader />
+        <main className="flex-1 p-4 pb-28 md:p-6 md:pb-32 lg:p-8">
+          <div className="mx-auto w-full max-w-7xl">
+            {/* Header */}
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground">{content.title}</h1>
+              <p className="mt-1 text-lg text-muted-foreground">{content.subtitle}</p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-xl border border-border/20 bg-card/50 p-6 shadow-2xl lg:grid lg:grid-cols-2 lg:gap-12 lg:p-10">
+                {/* Locked Overlay */}
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/70 backdrop-blur-sm">
+                    <Lock className="h-16 w-16 text-primary drop-shadow-[0_0_15px_hsl(var(--primary)/0.7)]" />
+                    <h2 className="mt-4 text-2xl font-bold text-white">Módulo Bloqueado</h2>
+                    <p className="text-muted-foreground">Adquira o acesso para desbloquear este desafio.</p>
+                    <Button size="lg" className="mt-6 bg-primary font-bold text-primary-foreground hover:bg-primary/90">
+                       {content.cta.locked}
+                    </Button>
+                </div>
+
+                {/* Background Content (Blurred) */}
+                {/* Left Column */}
+                <div className="flex flex-col justify-center">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                        <Image src={content.coverUrl} alt={`Capa do Desafio: ${content.title}`} fill className="object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="mt-6 space-y-6 lg:mt-0">
+                    <Card className="bg-transparent border-none">
+                        <CardHeader className="p-0">
+                          <CardTitle className="text-xl">O que você vai conquistar:</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3 p-0 pt-4">
+                            {content.conquests.map((objective: string, index: number) => (
+                            <div key={index} className="flex items-start gap-3">
+                                <Star className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                                <p className="text-sm text-muted-foreground">{objective}</p>
+                            </div>
+                            ))}
+                        </CardContent>
+                    </Card>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {content.benefits.map((benefit: any, index: number) => (
+                           <Card key={index} className="bg-card/70 border-border/50 p-4">
+                             <benefit.icon className="h-6 w-6 text-accent mb-2"/>
+                             <h3 className="font-semibold text-foreground">{benefit.title}</h3>
+                             <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                           </Card>
+                        ))}
+                    </div>
+                </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   // Render Module 1 (eBook)
   if (moduleId === 'module-1') {
-    const { title, subtitle, shortDescription, coverUrl, ebookInfo, learningObjectives, instructorNote, resources, cta } = content;
+    const { title, subtitle, shortDescription, coverUrl, ebookInfo, learningObjectives } = content;
     return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
