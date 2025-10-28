@@ -110,7 +110,7 @@ const moduleData: { [key: string]: any } = {
     title: 'DESAFIO DE 7 DIAS',
     subtitle: 'Um programa prático de 7 dias para reduzir despertares, acelerar o adormecer e recuperar sono profundo.',
     shortDescription: 'Programa guiado e comprovado — 7 passos diários, PDF completo com exercícios, áudios guiados e checklist diário. Resultados visíveis em uma semana. Acesso pago e imediato após a confirmação da compra.',
-    coverUrl: 'https://i.imgur.com/SATpqQV.jpeg',
+    coverUrl: 'https://i.imgur.com/QZA35kk.png',
     conquests: [
         'Dormir mais rápido e com menos despertares.',
         'Acordar com mais energia após 7 noites.',
