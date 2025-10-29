@@ -46,7 +46,7 @@ const moduleData: { [key: string]: any } = {
    'bonus-2': {
     title: 'CHECKLIST DIÁRIO',
     subtitle: 'Pequenos hábitos, grandes resultados — acompanhe sua rotina do sono',
-    sheetImageUrl: 'https://i.imgur.com/your-checklist-image.png', // Placeholder
+    sheetImageUrl: 'https://i.imgur.com/MQts2OQ.png',
     shortDescription: 'Uma checklist prática e imprimível para guiar suas ações diárias antes de dormir e ao acordar. Use-a para manter consistência, registrar progresso e observar melhorias semanais.',
     whatYouWillOrganize: [
       'Hábitos pré-sono essenciais (ex.: desligar telas, respiração, ambiente).',
@@ -206,7 +206,7 @@ export default function ModulePage() {
   
     // Render Bonus pages
   if (moduleId.startsWith('bonus-')) {
-    const { title, subtitle, sheetImageUrl, whatYouWillOrganize, quickInstructions, instructorNote, cta } = content;
+    const { title, subtitle, sheetImageUrl, whatYouWillOrganize, quickInstructions, cta } = content;
     return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
@@ -267,13 +267,6 @@ export default function ModulePage() {
                     </CardContent>
                 </Card>
                 
-                {instructorNote && (
-                  <Card className="border-border/50 bg-card/70">
-                    <CardContent className="p-4">
-                      <p className="text-sm italic text-muted-foreground">{instructorNote}</p>
-                    </CardContent>
-                  </Card>
-                )}
               </div>
             </div>
           </div>
@@ -283,7 +276,7 @@ export default function ModulePage() {
   }
 
   const handleUnlock = () => {
-    window.open('https://pay.cakto.com.br/32swn5d_577400', '_blank');
+    setIsLocked(false);
   };
   
   // Render Module 5 (Locked Challenge)
