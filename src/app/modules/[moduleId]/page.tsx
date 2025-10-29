@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare, Lock, Star, Zap, Award } from 'lucide-react';
+import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare, Lock, Star, Zap, Award, ClipboardCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
@@ -20,6 +20,30 @@ import { useState } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 
 const moduleData: { [key: string]: any } = {
+  'bonus-1': {
+      title: 'PLANILHA SEMANAL',
+      subtitle: 'Organize sua semana do sono — hábitos, rotinas e progresso',
+      shortDescription: 'Uma planilha prática e imprimível para planejar sua rotina semanal de sono, acompanhar hábitos, registrar horários e monitorar resultados. Use-a para aplicar o que aprendeu nos módulos e medir suas melhorias.',
+      sheetImageUrl: 'https://i.imgur.com/3Z3gYwP.png', // Placeholder, use a real image URL
+      sheetFileUrl: '{{SHEET_FILE_URL}}', // Placeholder
+      whatYouWillOrganize: [
+        'Horários de sono e despertar para manter consistência.',
+        'Hábitos pré-sono e notas sobre o que ajudou ou atrapalhou.',
+        'Registro de práticas diárias do Desafio (ex.: técnica usada, duração).',
+        'Observações semanais e metas para a próxima semana.',
+      ],
+      quickInstructions: [
+          'Baixe a planilha e abra no editor de sua preferência (ou imprima).',
+          'Preencha diariamente: horário de deitar, horário de acordar e 1 observação sobre a qualidade do sono.',
+          'Use a seção de checklist para marcar práticas realizadas do Desafio.',
+          'Ao final da semana, reveja os padrões e ajuste sua rotina para a próxima semana.',
+      ],
+      instructorNote: '“Preencha a planilha logo ao acordar — 1 minuto por dia. Pequenas anotações mostram padrões que ajudam a ajustar hábitos com rapidez.”',
+      cta: {
+        primary: { label: 'Baixar Planilha Semanal', action: 'downloadFile' },
+        secondary: { label: 'Ver prévia', action: 'openPreview' },
+      }
+    },
   'module-1': {
     title: 'O CÓDIGO DO SONO',
     subtitle: 'O guia essencial para reconquistar noites profundas e revigorantes.',
@@ -155,10 +179,86 @@ export default function ModulePage() {
   const moduleInfo = modules.find((m) => m.id === moduleId);
   const content = moduleData[moduleId];
 
-  if (!moduleInfo) {
+  if (!moduleInfo && !moduleId.startsWith('bonus')) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center">
         <p>Módulo não encontrado.</p>
+      </div>
+    );
+  }
+  
+    // Render Bonus 1 (Spreadsheet)
+  if (moduleId === 'bonus-1') {
+    const { title, subtitle, shortDescription, sheetImageUrl, whatYouWillOrganize, quickInstructions, instructorNote, cta } = content;
+    return (
+      <div className="flex min-h-screen w-full flex-col">
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
+        <DashboardHeader />
+        <main className="flex-1 p-4 pb-28 md:p-6 md:pb-32 lg:p-8">
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground">{title}</h1>
+              <p className="mt-1 text-lg text-muted-foreground">{subtitle}</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
+              <div className="lg:col-span-2">
+                <Card className="overflow-hidden bg-card/70 shadow-lg">
+                  <div className="relative aspect-[3/4]">
+                    <Image src={sheetImageUrl} alt={`Imagem da planilha: ${title}`} fill className="object-cover" />
+                  </div>
+                  <CardContent className="p-4">
+                    <Button size="lg" className="w-full">
+                      <Download className="mr-2 h-5 w-5" />
+                      {cta.primary.label}
+                    </Button>
+                     <Button variant="outline" size="sm" className="mt-2 w-full">
+                        <Eye className="mr-2 h-4 w-4" />
+                        {cta.secondary.label}
+                    </Button>
+                    <p className="mt-2 text-center text-xs text-muted-foreground">PDF — Gratuito</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="space-y-6 lg:col-span-3">
+                 <Card className="bg-card/70">
+                  <CardHeader>
+                    <CardTitle>O que você vai organizar</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    {whatYouWillOrganize.map((item: string, index: number) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <ClipboardCheck className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                        <p className="text-sm text-muted-foreground">{item}</p>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-card/70">
+                    <CardHeader>
+                        <CardTitle>Instruções Rápidas</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                        {quickInstructions.map((instruction: string, index: number) => (
+                        <div key={index} className="flex items-start gap-3">
+                            <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">{index + 1}</div>
+                            <p className="text-sm text-muted-foreground">{instruction}</p>
+                        </div>
+                        ))}
+                    </CardContent>
+                </Card>
+                
+                <Card className="border-border/50 bg-card/70">
+                  <CardContent className="p-4">
+                    <p className="text-sm italic text-muted-foreground">{instructorNote}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     );
   }
@@ -431,9 +531,3 @@ export default function ModulePage() {
       </div>
     );
 }
-
-    
-
-    
-
-    
