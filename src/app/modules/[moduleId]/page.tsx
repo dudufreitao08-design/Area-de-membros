@@ -46,7 +46,7 @@ const moduleData: { [key: string]: any } = {
    'bonus-2': {
     title: 'CHECKLIST DIÁRIO',
     subtitle: 'Pequenos hábitos, grandes resultados — acompanhe sua rotina do sono',
-    sheetImageUrl: 'https://i.imgur.com/MQts2OQ.png',
+    sheetImageUrl: 'https://i.imgur.com/m58gcat.png',
     shortDescription: 'Uma checklist prática e imprimível para guiar suas ações diárias antes de dormir e ao acordar. Use-a para manter consistência, registrar progresso e observar melhorias semanais.',
     whatYouWillOrganize: [
       'Hábitos pré-sono essenciais (ex.: desligar telas, respiração, ambiente).',

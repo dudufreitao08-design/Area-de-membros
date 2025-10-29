@@ -15,7 +15,7 @@ export const bonuses: Module[] = [
     id: 'bonus-2',
     title: 'Checklist Diário',
     icon: FileText,
-    imageUrl: 'https://i.imgur.com/MQts2OQ.png',
+    imageUrl: 'https://i.imgur.com/m58gcat.png',
     width: 1080,
     height: 1920,
   },
