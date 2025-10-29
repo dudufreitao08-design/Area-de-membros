@@ -60,7 +60,6 @@ const moduleData: { [key: string]: any } = {
       'Marque as práticas realizadas e escreva uma observação curta.',
       'Ao final da semana, reveja os padrões e ajuste pequenas metas.',
     ],
-    instructorNote: '“Reserve 1 minuto ao acordar para preencher — esse hábito simples é o que revela padrões e permite ajustes rápidos.”',
     cta: {
       primary: { label: 'Baixar Checklist Diário' },
       secondary: { label: 'Ver prévia' },
@@ -268,11 +267,13 @@ export default function ModulePage() {
                     </CardContent>
                 </Card>
                 
-                <Card className="border-border/50 bg-card/70">
-                  <CardContent className="p-4">
-                    <p className="text-sm italic text-muted-foreground">{instructorNote}</p>
-                  </CardContent>
-                </Card>
+                {instructorNote && (
+                  <Card className="border-border/50 bg-card/70">
+                    <CardContent className="p-4">
+                      <p className="text-sm italic text-muted-foreground">{instructorNote}</p>
+                    </CardContent>
+                  </Card>
+                )}
               </div>
             </div>
           </div>
