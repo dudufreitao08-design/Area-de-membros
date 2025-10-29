@@ -150,7 +150,7 @@ const moduleData: { [key: string]: any } = {
   },
   'module-5': {
     title: 'DESAFIO DE 7 DIAS',
-    subtitle: 'Um programa prático de 7 dias para reduzir despertares, acelerar o adormecer e recuperar sono profundo.',
+    subtitle: 'Transforme suas noites em 7 dias — prática guiada, simples e comprovada.',
     shortDescription: 'Programa guiado e comprovado — 7 passos diários, PDF completo com exercícios, áudios guiados e checklist diário. Resultados visíveis em uma semana. Acesso pago e imediato após a confirmação da compra.',
     coverUrl: 'https://i.imgur.com/QZA35kk.png',
     conquests: [
@@ -528,12 +528,6 @@ export default function ModulePage() {
 
                 {content.cta && (
                     <div className="space-y-3">
-                        <Button size="lg" className="w-full">
-                            {content.cta.primary.label}
-                        </Button>
-                        <Button size="lg" variant="secondary" className="w-full">
-                            {content.cta.secondary.label}
-                        </Button>
                     </div>
                 )}
               </div>
