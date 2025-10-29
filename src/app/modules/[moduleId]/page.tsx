@@ -24,8 +24,7 @@ const moduleData: { [key: string]: any } = {
       title: 'PLANILHA SEMANAL',
       subtitle: 'Organize sua semana do sono — hábitos, rotinas e progresso',
       shortDescription: 'Uma planilha prática e imprimível para planejar sua rotina semanal de sono, acompanhar hábitos, registrar horários e monitorar resultados. Use-a para aplicar o que aprendeu nos módulos e medir suas melhorias.',
-      sheetImageUrl: 'https://i.imgur.com/3Z3gYwP.png', // Placeholder, use a real image URL
-      sheetFileUrl: '{{SHEET_FILE_URL}}', // Placeholder
+      sheetImageUrl: 'https://i.imgur.com/3Z3gYwP.png',
       whatYouWillOrganize: [
         'Horários de sono e despertar para manter consistência.',
         'Hábitos pré-sono e notas sobre o que ajudou ou atrapalhou.',
@@ -44,6 +43,29 @@ const moduleData: { [key: string]: any } = {
         secondary: { label: 'Ver prévia', action: 'openPreview' },
       }
     },
+   'bonus-2': {
+    title: 'CHECKLIST DIÁRIO',
+    subtitle: 'Pequenos hábitos, grandes resultados — acompanhe sua rotina do sono',
+    sheetImageUrl: 'https://i.imgur.com/your-checklist-image.png', // Placeholder
+    shortDescription: 'Uma checklist prática e imprimível para guiar suas ações diárias antes de dormir e ao acordar. Use-a para manter consistência, registrar progresso e observar melhorias semanais.',
+    whatYouWillOrganize: [
+      'Hábitos pré-sono essenciais (ex.: desligar telas, respiração, ambiente).',
+      'Registro de hora de deitar / hora de acordar e qualidade percebida do sono.',
+      'Marcação rápida das práticas do Desafio (sim/não).',
+      'Observações diárias e nota para ajustar a rotina.',
+    ],
+    quickInstructions: [
+      'Baixe ou abra a checklist no modal.',
+      'Preencha todos os dias ao acordar ou antes de dormir (1–2 minutos).',
+      'Marque as práticas realizadas e escreva uma observação curta.',
+      'Ao final da semana, reveja os padrões e ajuste pequenas metas.',
+    ],
+    instructorNote: '“Reserve 1 minuto ao acordar para preencher — esse hábito simples é o que revela padrões e permite ajustes rápidos.”',
+    cta: {
+      primary: { label: 'Baixar Checklist Diário' },
+      secondary: { label: 'Ver prévia' },
+    },
+  },
   'module-1': {
     title: 'O CÓDIGO DO SONO',
     subtitle: 'O guia essencial para reconquistar noites profundas e revigorantes.',
@@ -61,10 +83,6 @@ const moduleData: { [key: string]: any } = {
       { label: 'Diário de sono (template)', url: '{{TEMPLATE_DIARIO_URL}}' },
       { label: 'Leitura complementar', url: '{{ARTIGO_URL}}' },
     ],
-    cta: {
-      primary: { label: 'Ler agora', action: 'openEbookViewer' },
-      secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
-    },
     ebookInfo: {
       author: 'Seu Nome',
       format: 'PDF',
@@ -187,9 +205,9 @@ export default function ModulePage() {
     );
   }
   
-    // Render Bonus 1 (Spreadsheet)
-  if (moduleId === 'bonus-1') {
-    const { title, subtitle, shortDescription, sheetImageUrl, whatYouWillOrganize, quickInstructions, instructorNote, cta } = content;
+    // Render Bonus pages
+  if (moduleId.startsWith('bonus-')) {
+    const { title, subtitle, sheetImageUrl, whatYouWillOrganize, quickInstructions, instructorNote, cta } = content;
     return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>

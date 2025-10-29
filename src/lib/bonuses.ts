@@ -7,15 +7,15 @@ export const bonuses: Module[] = [
     id: 'bonus-1',
     title: 'Planilha Semanal',
     icon: ClipboardCheck,
-    imageUrl: 'https://i.imgur.com/your-spreadsheet-image.png', // Placeholder, a ser substituído
+    imageUrl: 'https://i.imgur.com/3Z3gYwP.png', 
     width: 1080,
     height: 1620,
   },
   {
     id: 'bonus-2',
-    title: 'Vídeo: Meditação Guiada',
-    icon: Video,
-    imageUrl: 'https://i.imgur.com/gw22k4v.png',
+    title: 'Checklist Diário',
+    icon: FileText,
+    imageUrl: 'https://i.imgur.com/your-checklist-image.png', // Placeholder
     width: 1080,
     height: 1920,
   },
