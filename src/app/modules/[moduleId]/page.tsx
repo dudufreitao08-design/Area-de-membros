@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Check, Download, FileText, Info, Link as LinkIcon, PlayCircle, Speaker, Eye, BookOpen, Music, CheckSquare, Lock, Star, Zap, Award } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
 import { useState } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -163,7 +164,7 @@ export default function ModulePage() {
   }
 
   const handleUnlock = () => {
-    setIsLocked(false);
+    window.open('https://pay.cakto.com.br/32swn5d_577400', '_blank');
   };
   
   // Render Module 5 (Locked Challenge)
@@ -249,9 +250,11 @@ export default function ModulePage() {
                   <div className="relative w-full overflow-hidden rounded-lg">
                     <Image src={content.coverUrl} alt={`Capa do Desafio: ${content.title}`} width={1080} height={1080} className="object-contain" />
                   </div>
-                  <Button size="lg" className="mt-6 w-full">
-                    <Download className="mr-2" />
-                    {content.cta.unlocked}
+                  <Button size="lg" className="mt-6 w-full" asChild>
+                    <Link href="https://pay.cakto.com.br/32swn5d_577400" target="_blank">
+                      <Download className="mr-2" />
+                      {content.cta.unlocked}
+                    </Link>
                   </Button>
                 </div>
                 <div className="space-y-6">
@@ -428,6 +431,8 @@ export default function ModulePage() {
       </div>
     );
 }
+
+    
 
     
 
