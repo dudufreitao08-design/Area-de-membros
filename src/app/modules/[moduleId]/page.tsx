@@ -105,7 +105,7 @@ const moduleData: { [key: string]: any } = {
       {
         label: 'Vídeo 1 — Introdução aos ciclos do sono',
         duration: '10–15 min',
-        youtubeUrl: 'https://www.youtube.com/embed/Oq_IcvRH-Iw'
+        youtubeUrl: 'https://www.youtube.com/embed/RqLWkYz8j18'
       },
       {
         label: 'Vídeo 2 — O que atrapalha o sono (luz, hábitos, alimentação)',
