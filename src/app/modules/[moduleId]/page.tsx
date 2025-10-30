@@ -105,6 +105,7 @@ const moduleData: { [key: string]: any } = {
       {
         label: 'Vídeo 1 — Introdução aos ciclos do sono',
         duration: '10–15 min',
+        youtubeUrl: 'https://www.youtube.com/embed/Oq_IcvRH-Iw'
       },
       {
         label: 'Vídeo 2 — O que atrapalha o sono (luz, hábitos, alimentação)',
@@ -171,23 +172,36 @@ const moduleData: { [key: string]: any } = {
   }
 };
 
-const VideoCard = ({ label, duration }: { label: string; duration: string }) => (
-    <Card className="overflow-hidden bg-card/70 transition-shadow hover:shadow-lg">
-      <div className="relative aspect-video bg-muted">
+const VideoCard = ({ label, duration, youtubeUrl }: { label: string; duration: string, youtubeUrl?: string }) => (
+  <Card className="overflow-hidden bg-card/70 transition-shadow hover:shadow-lg">
+    <div className="relative aspect-video bg-muted">
+      {youtubeUrl ? (
+        <iframe
+          src={`${youtubeUrl}?rel=0&modestbranding=1&showinfo=0`}
+          className="absolute h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title={label}
+          style={{ border: 0 }}
+        ></iframe>
+      ) : (
         <div className="flex h-full w-full items-center justify-center">
           <PlayCircle className="h-12 w-12 text-muted-foreground/50" />
         </div>
-      </div>
-      <CardContent className="p-4">
-        <h3 className="font-semibold">{label}</h3>
-        <p className="text-xs text-muted-foreground">{duration}</p>
+      )}
+    </div>
+    <CardContent className="p-4">
+      <h3 className="font-semibold">{label}</h3>
+      <p className="text-xs text-muted-foreground">{duration}</p>
+      {!youtubeUrl && (
         <Button variant="outline" size="sm" className="mt-3 w-full">
           <PlayCircle className="mr-2 h-4 w-4" />
           Assistir
         </Button>
-      </CardContent>
-    </Card>
-  );
+      )}
+    </CardContent>
+  </Card>
+);
 
 export default function ModulePage() {
   const params = useParams();
@@ -514,7 +528,7 @@ export default function ModulePage() {
               {/* Left Column (Videos) */}
               <div className="space-y-6 lg:col-span-2">
                 {content.videos.map((video: any, index: number) => (
-                  <VideoCard key={index} label={video.label} duration={video.duration} />
+                  <VideoCard key={index} label={video.label} duration={video.duration} youtubeUrl={video.youtubeUrl} />
                 ))}
               </div>
 
