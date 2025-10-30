@@ -110,6 +110,7 @@ const moduleData: { [key: string]: any } = {
       {
         label: 'Vídeo 2 — O que atrapalha o sono (luz, hábitos, alimentação)',
         duration: '10–15 min',
+        youtubeUrl: 'https://www.youtube.com/embed/0FVaGM8LjkM'
       },
       {
         label: 'Vídeo 3 — Rotina prática e dicas imediatas para dormir melhor',
