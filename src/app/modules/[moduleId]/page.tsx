@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useParams } from 'next/navigation';
@@ -426,9 +427,11 @@ export default function ModulePage() {
                     </div>
                   </div>
                   <CardContent className="p-4">
-                    <Button size="lg" className="w-full">
-                      <Download className="mr-2 h-5 w-5" />
-                      Baixar agora
+                    <Button size="lg" className="w-full" asChild>
+                      <Link href="https://heyzine.com/flip-book/910b9a0b14.html" target="_blank">
+                        <Download className="mr-2 h-5 w-5" />
+                        Baixar agora
+                      </Link>
                     </Button>
                     <p className="mt-2 text-center text-xs text-muted-foreground">PDF — 12 MB</p>
                   </CardContent>
