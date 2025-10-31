@@ -213,6 +213,10 @@ export default function ModulePage() {
     // Render Bonus pages
   if (moduleId.startsWith('bonus-')) {
     const { title, subtitle, sheetImageUrl, whatYouWillOrganize, quickInstructions, cta } = content;
+    const downloadLink = moduleId === 'bonus-2' 
+      ? 'https://www.notion.so/Checklist-Di-rio-do-Sono-9750a99cf05b46aca3f2f5592613b817'
+      : '#';
+      
     return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
@@ -231,9 +235,11 @@ export default function ModulePage() {
                     <Image src={sheetImageUrl} alt={`Imagem da planilha: ${title}`} fill className="object-cover" />
                   </div>
                   <CardContent className="p-4">
-                    <Button size="lg" className="w-full">
-                      <Download className="mr-2 h-5 w-5" />
-                      {cta.primary.label}
+                    <Button size="lg" className="w-full" asChild>
+                      <Link href={downloadLink} target="_blank">
+                        <Download className="mr-2 h-5 w-5" />
+                        {cta.primary.label}
+                      </Link>
                     </Button>
                      <Button variant="outline" size="sm" className="mt-2 w-full">
                         <Eye className="mr-2 h-4 w-4" />
