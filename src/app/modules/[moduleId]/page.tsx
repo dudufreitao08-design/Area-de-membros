@@ -127,7 +127,6 @@ const moduleData: { [key: string]: any } = {
       { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: '{{YOUTUBE_URL_2}}' },
       { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
-    estimatedTime: '30–50 minutos',
     cta: {
       primary: { label: 'Iniciar prática', action: 'startGuidedPractice' },
       secondary: { label: 'Marcar como concluído', action: 'markModuleComplete' },
@@ -522,7 +521,7 @@ export default function ModulePage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-start">
               {/* Left Column (Videos) */}
               <div className="space-y-6 lg:col-span-2">
                 {content.videos.map((video: any, index: number) => (
@@ -531,7 +530,7 @@ export default function ModulePage() {
               </div>
 
               {/* Right Column (Details) */}
-              <div className="space-y-6">
+              <div className="space-y-6 lg:sticky lg:top-8">
                 <Card className="bg-card/70">
                   <CardHeader>
                     <CardTitle>Sobre este módulo</CardTitle>
