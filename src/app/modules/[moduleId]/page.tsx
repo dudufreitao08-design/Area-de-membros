@@ -115,6 +115,7 @@ const moduleData: { [key: string]: any } = {
       {
         label: 'Vídeo 3 — Rotina prática e dicas imediatas para dormir melhor',
         duration: '10–20 min',
+        youtubeUrl: 'https://www.youtube.com/embed/IIvm1FjAYog'
       },
     ],
   },
