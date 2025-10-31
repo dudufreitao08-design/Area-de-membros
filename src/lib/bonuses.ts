@@ -7,7 +7,7 @@ export const bonuses: Module[] = [
     id: 'bonus-1',
     title: 'Planilha Semanal',
     icon: ClipboardCheck,
-    imageUrl: 'https://i.imgur.com/3Z3gYwP.png', 
+    imageUrl: 'https://i.imgur.com/zmYgcYa.png', 
     width: 1080,
     height: 1620,
   },
