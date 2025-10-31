@@ -213,9 +213,12 @@ export default function ModulePage() {
     // Render Bonus pages
   if (moduleId.startsWith('bonus-')) {
     const { title, subtitle, sheetImageUrl, whatYouWillOrganize, quickInstructions, cta } = content;
-    const downloadLink = moduleId === 'bonus-2' 
-      ? 'https://www.notion.so/Checklist-Di-rio-do-Sono-9750a99cf05b46aca3f2f5592613b817'
-      : '#';
+    let downloadLink = '#';
+    if (moduleId === 'bonus-1') {
+      downloadLink = 'https://www.notion.so/e5713f50b844490eb4dc7f30ff57bba6?v=f8042abd513a44ba84d2b1af587dfd69';
+    } else if (moduleId === 'bonus-2') {
+      downloadLink = 'https://www.notion.so/Checklist-Di-rio-do-Sono-9750a99cf05b46aca3f2f5592613b817';
+    }
       
     return (
       <div className="flex min-h-screen w-full flex-col">
