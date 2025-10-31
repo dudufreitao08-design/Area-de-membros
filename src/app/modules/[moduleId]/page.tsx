@@ -244,10 +244,6 @@ export default function ModulePage() {
                         {cta.primary.label}
                       </Link>
                     </Button>
-                     <Button variant="outline" size="sm" className="mt-2 w-full">
-                        <Eye className="mr-2 h-4 w-4" />
-                        {cta.secondary.label}
-                    </Button>
                     <p className="mt-2 text-center text-xs text-muted-foreground">PDF — Gratuito</p>
                   </CardContent>
                 </Card>
