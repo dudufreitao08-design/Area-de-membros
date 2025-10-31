@@ -140,7 +140,7 @@ const moduleData: { [key: string]: any } = {
     shortDescription: 'Descubra técnicas práticas para preparar corpo e mente para um sono restaurador. Este módulo guia você passo a passo até o momento ideal de descanso, criando uma rotina noturna eficaz.',
     videos: [
       { label: 'Vídeo 1: Criando o ambiente ideal', youtubeUrl: 'https://www.youtube.com/embed/r1KnWmgcYi0' },
-      { label: 'Vídeo 2: Desacelerando a mente', youtubeUrl: '{{YOUTUBE_URL_2}}' },
+      { label: 'Vídeo 2: Desacelerando a mente', youtubeUrl: 'https://www.youtube.com/embed/Rgdo3eJo_7g' },
       { label: 'Vídeo 3: O ritual do sono', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
     cta: {
