@@ -141,7 +141,7 @@ const moduleData: { [key: string]: any } = {
     videos: [
       { label: 'Vídeo 1: Criando o ambiente ideal', youtubeUrl: 'https://www.youtube.com/embed/r1KnWmgcYi0' },
       { label: 'Vídeo 2: Desacelerando a mente', youtubeUrl: 'https://www.youtube.com/embed/Rgdo3eJo_7g' },
-      { label: 'Vídeo 3: O ritual do sono', youtubeUrl: '{{YOUTUBE_URL_3}}' },
+      { label: 'Vídeo 3: O ritual do sono', youtubeUrl: 'https://www.youtube.com/embed/XR4-0XX6mvo' },
     ],
     cta: {
       primary: { label: 'Começar rotina', action: 'startRoutine' },
