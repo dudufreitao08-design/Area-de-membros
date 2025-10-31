@@ -25,7 +25,7 @@ const moduleData: { [key: string]: any } = {
       title: 'PLANILHA SEMANAL',
       subtitle: 'Organize sua semana do sono — hábitos, rotinas e progresso',
       shortDescription: 'Uma planilha prática e imprimível para planejar sua rotina semanal de sono, acompanhar hábitos, registrar horários e monitorar resultados. Use-a para aplicar o que aprendeu nos módulos e medir suas melhorias.',
-      sheetImageUrl: 'https://i.imgur.com/3Z3gYwP.png',
+      sheetImageUrl: 'https://i.imgur.com/zmYgcYa.png',
       whatYouWillOrganize: [
         'Horários de sono e despertar para manter consistência.',
         'Hábitos pré-sono e notas sobre o que ajudou ou atrapalhou.',
