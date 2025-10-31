@@ -104,17 +104,14 @@ const moduleData: { [key: string]: any } = {
     videos: [
       {
         label: 'Vídeo 1 — Introdução aos ciclos do sono',
-        duration: '10–15 min',
         youtubeUrl: 'https://www.youtube.com/embed/RqLWkYz8j18'
       },
       {
         label: 'Vídeo 2 — O que atrapalha o sono (luz, hábitos, alimentação)',
-        duration: '10–15 min',
         youtubeUrl: 'https://www.youtube.com/embed/0FVaGM8LjkM'
       },
       {
         label: 'Vídeo 3 — Rotina prática e dicas imediatas para dormir melhor',
-        duration: '10–20 min',
         youtubeUrl: 'https://www.youtube.com/embed/IIvm1FjAYog'
       },
     ],
@@ -126,9 +123,9 @@ const moduleData: { [key: string]: any } = {
     subtitle: 'Práticas guiadas para reduzir ansiedade e preparar o corpo para o sono',
     shortDescription: 'Aprenda técnicas simples e eficazes — respiração, relaxamento muscular e visualização — para acalmar a mente e facilitar o adormecer. Conteúdo prático com áudios e vídeos para seguir passo a passo.',
     videos: [
-      { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', duration: '6–10 min', youtubeUrl: '{{YOUTUBE_URL_1}}' },
-      { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', duration: '10–15 min', youtubeUrl: '{{YOUTUBE_URL_2}}' },
-      { label: 'Vídeo 3 — Visualização guiada para sono profundo', duration: '8–15 min', youtubeUrl: '{{YOUTUBE_URL_3}}' },
+      { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', youtubeUrl: '{{YOUTUBE_URL_1}}' },
+      { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: '{{YOUTUBE_URL_2}}' },
+      { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
     estimatedTime: '30–50 minutos',
     cta: {
@@ -143,9 +140,9 @@ const moduleData: { [key: string]: any } = {
     subtitle: 'Transforme sua noite em um ritual de relaxamento profundo.',
     shortDescription: 'Descubra técnicas práticas para preparar corpo e mente para um sono restaurador. Este módulo guia você passo a passo até o momento ideal de descanso, criando uma rotina noturna eficaz.',
     videos: [
-      { label: 'Vídeo 1: Criando o ambiente ideal', duration: '8-12 min', youtubeUrl: '{{YOUTUBE_URL_1}}' },
-      { label: 'Vídeo 2: Desacelerando a mente', duration: '10-15 min', youtubeUrl: '{{YOUTUBE_URL_2}}' },
-      { label: 'Vídeo 3: O ritual do sono', duration: '7-10 min', youtubeUrl: '{{YOUTUBE_URL_3}}' },
+      { label: 'Vídeo 1: Criando o ambiente ideal', youtubeUrl: '{{YOUTUBE_URL_1}}' },
+      { label: 'Vídeo 2: Desacelerando a mente', youtubeUrl: '{{YOUTUBE_URL_2}}' },
+      { label: 'Vídeo 3: O ritual do sono', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
     cta: {
       primary: { label: 'Começar rotina', action: 'startRoutine' },
@@ -174,7 +171,7 @@ const moduleData: { [key: string]: any } = {
   }
 };
 
-const VideoCard = ({ label, duration, youtubeUrl }: { label: string; duration: string, youtubeUrl?: string }) => (
+const VideoCard = ({ label, youtubeUrl }: { label: string; youtubeUrl?: string }) => (
   <Card className="overflow-hidden bg-card/70 transition-shadow hover:shadow-lg">
     <div className="relative aspect-video bg-muted">
       {youtubeUrl ? (
@@ -194,7 +191,6 @@ const VideoCard = ({ label, duration, youtubeUrl }: { label: string; duration: s
     </div>
     <CardContent className="p-4">
       <h3 className="font-semibold">{label}</h3>
-      <p className="text-xs text-muted-foreground">{duration}</p>
       {!youtubeUrl && (
         <Button variant="outline" size="sm" className="mt-3 w-full">
           <PlayCircle className="mr-2 h-4 w-4" />
@@ -530,7 +526,7 @@ export default function ModulePage() {
               {/* Left Column (Videos) */}
               <div className="space-y-6 lg:col-span-2">
                 {content.videos.map((video: any, index: number) => (
-                  <VideoCard key={index} label={video.label} duration={video.duration} youtubeUrl={video.youtubeUrl} />
+                  <VideoCard key={index} label={video.label} youtubeUrl={video.youtubeUrl} />
                 ))}
               </div>
 
