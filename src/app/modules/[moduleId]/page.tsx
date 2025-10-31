@@ -125,7 +125,7 @@ const moduleData: { [key: string]: any } = {
     videos: [
       { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', youtubeUrl: 'https://www.youtube.com/embed/HEHFpI42Mjc' },
       { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: 'https://www.youtube.com/embed/HmUE_MCnk24' },
-      { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: '{{YOUTUBE_URL_3}}' },
+      { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: 'https://www.youtube.com/embed/M75eDkl29Pk' },
     ],
     cta: {
       primary: { label: 'Iniciar prática', action: 'startGuidedPractice' },
