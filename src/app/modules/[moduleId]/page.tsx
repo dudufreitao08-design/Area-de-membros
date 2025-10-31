@@ -123,7 +123,7 @@ const moduleData: { [key: string]: any } = {
     subtitle: 'Práticas guiadas para reduzir ansiedade e preparar o corpo para o sono',
     shortDescription: 'Aprenda técnicas simples e eficazes — respiração, relaxamento muscular e visualização — para acalmar a mente e facilitar o adormecer. Conteúdo prático com áudios e vídeos para seguir passo a passo.',
     videos: [
-      { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', youtubeUrl: '{{YOUTUBE_URL_1}}' },
+      { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', youtubeUrl: 'https://www.youtube.com/embed/HEHFpI42Mjc' },
       { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: '{{YOUTUBE_URL_2}}' },
       { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
@@ -190,12 +190,6 @@ const VideoCard = ({ label, youtubeUrl }: { label: string; youtubeUrl?: string }
     </div>
     <CardContent className="p-4">
       <h3 className="font-semibold">{label}</h3>
-      {!youtubeUrl && (
-        <Button variant="outline" size="sm" className="mt-3 w-full">
-          <PlayCircle className="mr-2 h-4 w-4" />
-          Assistir
-        </Button>
-      )}
     </CardContent>
   </Card>
 );
