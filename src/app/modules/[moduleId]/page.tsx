@@ -124,7 +124,7 @@ const moduleData: { [key: string]: any } = {
     shortDescription: 'Aprenda técnicas simples e eficazes — respiração, relaxamento muscular e visualização — para acalmar a mente e facilitar o adormecer. Conteúdo prático com áudios e vídeos para seguir passo a passo.',
     videos: [
       { label: 'Vídeo 1 — Respiração guiada (técnica 4-4-6)', youtubeUrl: 'https://www.youtube.com/embed/HEHFpI42Mjc' },
-      { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: '{{YOUTUBE_URL_2}}' },
+      { label: 'Vídeo 2 — Relaxamento muscular progressivo (pescoço aos pés)', youtubeUrl: 'https://www.youtube.com/embed/HmUE_MCnk24' },
       { label: 'Vídeo 3 — Visualização guiada para sono profundo', youtubeUrl: '{{YOUTUBE_URL_3}}' },
     ],
     cta: {
