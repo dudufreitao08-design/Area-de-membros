@@ -311,8 +311,10 @@ export default function ModulePage() {
                       <Lock className="h-16 w-16 text-primary drop-shadow-[0_0_15px_hsl(var(--primary)/0.7)]" />
                       <h2 className="mt-4 text-2xl font-bold text-white">Módulo Bloqueado</h2>
                       <p className="text-muted-foreground">Adquira o acesso para desbloquear este desafio.</p>
-                      <Button size="lg" className="mt-6 bg-primary font-bold text-primary-foreground hover:bg-primary/90" onClick={handleUnlock}>
+                      <Button size="lg" className="mt-6 bg-primary font-bold text-primary-foreground hover:bg-primary/90" asChild>
+                        <Link href="https://pay.cakto.com.br/32swn5d_577400" target="_blank">
                          {content.cta.locked}
+                        </Link>
                       </Button>
                   </div>
 
