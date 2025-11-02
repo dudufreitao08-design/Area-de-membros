@@ -481,25 +481,42 @@ export default function ModulePage() {
       </div>
     );
   }
-
-
-  // Render generic page if no specific content is available
-  if (!content) {
+// Render generic page if no specific content is available
+if (!content) {
+  // ✅ Verifica se moduleInfo existe antes de renderizar
+  if (!moduleInfo) {
     return (
       <div className="flex min-h-screen w-full flex-col">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
         <DashboardHeader />
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
           <div className="mx-auto grid w-full max-w-6xl items-start gap-6">
-            <h1 className="text-4xl font-bold">{moduleInfo.title}</h1>
+            <h1 className="text-4xl font-bold">Módulo não encontrado</h1>
             <p className="text-lg text-muted-foreground">
-              Conteúdo da aula aqui...
+              Não foi possível carregar as informações deste módulo.
             </p>
           </div>
         </main>
       </div>
     );
   }
+
+  // ✅ Se moduleInfo existir, renderiza normalmente
+  return (
+    <div className="flex min-h-screen w-full flex-col">
+      <div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(119,141,169,0.1),rgba(255,255,255,0))]"></div>
+      <DashboardHeader />
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+        <div className="mx-auto grid w-full max-w-6xl items-start gap-6">
+          <h1 className="text-4xl font-bold">{moduleInfo.title}</h1>
+          <p className="text-lg text-muted-foreground">
+            Conteúdo da aula aqui...
+          </p>
+        </div>
+      </main>
+    </div>
+  );
+}
 
   // Common Layout for Modules with specific content (2, 3, 4)
   return (
