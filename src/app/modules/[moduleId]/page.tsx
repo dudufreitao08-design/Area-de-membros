@@ -551,4 +551,5 @@ export default function ModulePage() {
         </main>
       </div>
     );
+  }
 }
