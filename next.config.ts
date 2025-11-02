@@ -32,7 +32,13 @@ const nextConfig: NextConfig = {
         hostname: 'imgur.com',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'heyzine.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
